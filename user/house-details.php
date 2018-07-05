@@ -271,7 +271,7 @@
 		}
 		else{
 			$.ajax({
-				type:"post",
+				type:"get",
 				url:"../dboperate/reservation-add.php",
 				async:false,
 				data:{

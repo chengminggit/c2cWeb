@@ -58,29 +58,29 @@
 					<ul>
 						<li class="box-s clearfloat">
 							<p class="tit fl">您的姓名</p>
-							<input type="text" name="" id="" value="" placeholder="我们如何称呼您" class="fl" />
+							<input type="text" name="" id="addname" value="" placeholder="我们如何称呼您" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
 							<p class="tit fl">手机号码</p>
-							<input type="text" name="" id="" value="" placeholder="我们会及时和您取得联系" class="fl" />
+							<input type="text" name="" id="addphone" value="" placeholder="我们会及时和您取得联系" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
 							<p class="tit fl">小区名称</p>
-							<input type="text" name="" id="" value="" placeholder="请输入小区名称" class="fl" />
+							<input type="text" name="" id="addcommunityname" value="" placeholder="请输入小区名称" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
 							<p class="tit fl">意向租金</p>
-							<input type="text" name="" id="" value="" placeholder="例如5000" class="fl" />
+							<input type="text" name="" id="addrent" value="" placeholder="例如5000" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
 							<p class="tit fl">起租日期</p>
-							<input type="text" name="" id="" value="" placeholder="请选择起租日期" class="fl" />
+							<input type="text" name="" id="addtime" value="" placeholder="请选择起租日期" class="fl" />
 							<!--<button id='demo2' data-options='{"type":"date","beginYear":2014,"endYear":2016}' class="btnfour mui-btn mui-btn-block fl day">请选择起租日期</button>-->
 							<!--<i class="iconfont icon-arrowright fl"></i>-->
 						</li>
 						<li class="box-s clearfloat" id='showUserPicker'>
 							<p class="tit fl">租房类型</p>
-							<input type="text" name="" id="" value=""  placeholder="公寓" class="fl" />
+							<input type="text" name="" id="addtype" value=""  placeholder="公寓" class="fl" />
 							<!--<i class="iconfont icon-arrowright fl"></i>-->
 						</li>
 						<!--<li class="box-s clearfloat">-->
@@ -95,11 +95,56 @@
 					<label for="check">我已阅读并同意<span>《c2c旅游者租房出租委托协议》</span></label>
 				</div>
 				<a href="#loginmodal" id="modaltrigger">
-					<input type="button" name="" id="" value="提交委托" class="btn" />
+					<input type="button" name="" id="submit" value="提交委托" class="btn" />
 				</a>
 			</div>
 		</div>
-		
+
+		<script type="text/javascript">
+
+			$("#submit").on("click",function(){
+				var lessorName=$("#addname").val().trim();
+				var lessorPhone=$("#addphone").val().trim();
+				var communityName =$("#addcommunityname").val().trim();
+				var rent=$("#addrent").val().trim();
+				var rentTime=$("#addtime").val().trim();
+				var houseType=$("#addtype").val().trim();
+
+
+				if(lessorName==""||lessorPhone==""||communityName==""||rent==""||rentTime==""||houseType==""){
+					alert("姓名，手机号，小区名字，租金，日期，房屋种类不能为空");
+					return false;
+				}
+				else{
+					$.ajax({
+						type:"get",
+						url:"../dboperate/houselease-add.php",
+						async:false,
+						data:{
+							lessorName:lessorName,
+							lessorPhone:lessorPhone,
+							county:communityName,
+							rent:rent,
+							rentTime:rentTime,
+							houseType:houseType
+						},
+						dataType:"json",
+						success:function(msg){
+							alert("添加预定成功"+msg);
+							window.location.href="house-details.php";
+
+						},
+						error: function(){
+							alert("服务器连接失败");
+							return false;
+						}
+					});
+				}
+			})
+		</script>
+
+
+
 		<footer class="page-footer fixed-footer" id="footer">
 			<ul>
 				<li>
@@ -109,7 +154,7 @@
 					</a>
 				</li>
 				<li class="active">
-					<a href="lease.html">
+					<a href="lease.php">
 						<i class="iconfont icon-chuzuwo"></i>
 						<p>我要出租</p>
 					</a>
