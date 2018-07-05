@@ -25,7 +25,7 @@
         echo("连接成功");
     }
     $conn->query("set names utf8");
-    $sql= "INSERT INTO reservation (name, phone, time) VALUES ('$name', '$phone', '$time')";
+    $sql= "INSERT INTO book (name, phone, time) VALUES ('$name', '$phone', '$time')";
 
     $result = $conn->query($sql);
     $conn->close();
