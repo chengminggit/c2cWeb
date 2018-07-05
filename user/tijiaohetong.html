@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>登录</title>
+    <title>提交合同</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <script src="js/rem.js"></script> 
@@ -38,49 +38,19 @@
 	<body>
 		<div class="headertwo clearfloat" id="header">
 			<a href="javascript:history.go(-1)" class="fl box-s"><i class="iconfont icon-arrow-l fl"></i></a>
-			<p class="fl">登录</p>
+			<p class="fl">提交合同</p>
 		</div>
 		
-		<div class="sign clearfloat" id="main">
-			<ul>
-				<li class="clearfloat">
-					<i class="iconfont icon-phone fl"></i>
-					<input type="text" id="phone" value="" placeholder="请输入手机号" class="fl phone" />
-				</li>
-				<li class="clearfloat">
-					<i class="iconfont icon-lock fl"></i>
-					<input type="password" id="password" value="" placeholder="请输入密码" class="fl phone" />
-				</li>
-			</ul>
-			<a class="pay-btn clearfloat" id="denglu">
-				登录
-			</a>
-			<div class="bottom clearfloat">
-				<p class="fl">
-					还不是会员？
-					<a href="register.html">立即注册</a>
-				</p>
-				<a href="modify.html" class="fr">忘记密码？</a>
-			</div>
+		<div class="about-detail clearfloat box-s" id="main">
+			<div class="ctent clearfloat box-s">
+
+			</div>			
 		</div>
 	</body>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
+	<script type="text/javascript" src="slick/slick.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+	<script type="text/javascript" src="js/tchuang.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
-	<script>
-		var oPhone = document.getElementById("phone"),
-			oPassword = document.getElementById("password"),
-			oDenglu = document.getElementById("denglu");
-
-		oDenglu.onclick = function () {
-			if(oPhone.value === '17863107533' && oPassword.value === "123456"){
-			    alert("成功登陆");
-			    window.location.href='p-center.html';
-			}else{
-			    alert("账号或密码错误");
-			}
-        }
-
-
-	</script>
 </html>
