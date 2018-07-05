@@ -222,7 +222,7 @@
 		</div>
 		
 		<div class="footer-look clearfloat" id="footer">
-			<a href="#loginmodal" id="modaltrigger">我要看房</a>
+			<a href="#loginmodal" id="modaltrigger">我要付款</a>
 		</div>
 
 		
@@ -232,7 +232,7 @@
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
 			<div class="top clearfloat box-s">
-				填写信息
+				正式订单
 			</div>
 			<div class="bottom clearfloat box-s">
 				<ul>
