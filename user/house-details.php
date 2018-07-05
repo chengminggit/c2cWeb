@@ -224,10 +224,10 @@
 		<div class="footer-look clearfloat" id="footer">
 			<a href="#loginmodal" id="modaltrigger">我要看房</a>
 		</div>
-		
+
 		
 		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">	    	
+	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">
 			<form id="loginform" name="loginform" method="post" action="">		
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
@@ -253,7 +253,7 @@
 			</div>
 		</div>
 	    <!--弹窗内容 end-->
-		
+
 	</body>
 
 
