@@ -166,7 +166,7 @@
 		    	</div>
 		    	<div class="recom-xia clearfloat box-s">
 		    		<div class="list clearfloat fl">
-		    			<a href="house-details.html">
+		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
 			    				<img src="upload/1.jpg"/>
@@ -183,7 +183,7 @@
 		    			</a>
 		    		</div>
 		    		<div class="list clearfloat fl">
-		    			<a href="house-details.html">
+		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
 			    				<img src="upload/1.jpg"/>
@@ -200,7 +200,7 @@
 		    			</a>
 		    		</div>
 		    		<div class="list clearfloat fl">
-		    			<a href="house-details.html">
+		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
 			    				<img src="upload/1.jpg"/>
@@ -238,15 +238,15 @@
 				<ul>
 					<li class="clearfloat">
 						<i class="iconfont icon-user"></i>
-						<input type="text" name="" id="" value="" placeholder="您的姓名" />
+						<input type="text" name="" id="addname" value="" placeholder="您的姓名" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-phone"></i>
-						<input type="text" name="" id="" value="" placeholder="您的手机号码" />
+						<input type="text" name="" id="addphone" value="" placeholder="您的手机号码" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-calendar"></i>
-						<input type="text" name="" id="" value="" placeholder="请选择看房时间" />
+						<input type="text" name="" id="addtime" value="" placeholder="请选择看房时间" />
 					</li>
 				</ul>
 				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
@@ -255,14 +255,54 @@
 	    <!--弹窗内容 end-->
 		
 	</body>
+
+
+	<script type="text/javascript">
+
+	$("#lijiyuyue").on("click",function(){
+		var name=$("#addname").val().trim();
+		var phone=$("#addphone").val().trim();
+		var time=$("#addtime").val().trim();
+
+
+		if(name==""||phone==""||time==""){
+			alert("姓名，手机号，时间不能为空");
+			return false;
+		}
+		else{
+			$.ajax({
+				type:"get",
+				url:"../dboperate/reservation-add.php",
+				async:false,
+				data:{
+					name:name,
+					phone:phone,
+					time:time
+				},
+				dataType:"json",
+				success:function(msg){
+						alert("添加预定成功"+msg);
+						window.location.href="house-details.php";
+
+				},
+				error: function(){
+					alert("服务器连接失败");
+					return false;
+				}
+			});
+		}
+	})
+	</script>
+
 	<script>
 		var oLijiyuyue = document.getElementById("lijiyuyue");
 		oLijiyuyue.onclick = function () {
 			alert("提交成功！");
-        }
+		}
 
 
 	</script>
+
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script type="text/javascript" src="slick/slick.min.js" ></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
