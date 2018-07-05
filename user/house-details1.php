@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>房源详情</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/hDate.js"></script>
+
+    <link href="hDate.css" rel="stylesheet" />
+
     <meta name="keywords" content="">
     <meta name="description" content="">
     <script src="js/rem.js"></script> 
@@ -21,6 +26,9 @@
 			$(".loading").fadeOut(300)
 		})
 	</script>
+	<style type="text/css">
+    html, body {width:100%;height:100%;padding:0;margin:0; }
+    </style>
 </head>
 <!--loading页开始-->
 <div class="loading">
@@ -102,6 +110,7 @@
 			<div class="service-ctent clearfloat">
 				<div class="recom-tit clearfloat box-s">
 		    		<p>房屋信息</p>
+
 		    	</div>
 		    	<div class="service-list clearfloat box-s">
 		    		<ul>
@@ -144,6 +153,7 @@
 		    			<li><i class="iconfont icon-nuanqi"></i>供暖</li>
 		    			<li><i class="iconfont icon-tingchewei"></i>车位</li>
 		    			<li><i class="iconfont icon-menjin"></i>门禁</li>
+
 		    		</ul>
 		    	</div>
 			</div>
@@ -225,7 +235,7 @@
 
 		
 		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">
+	    <div id="loginmodal" class="box-s loginmodal" style="display:none;z-index:50;">
 			<form id="loginform" name="loginform" method="post" action="">		
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
@@ -237,15 +247,30 @@
 					<li class="clearfloat">
 						<i class="iconfont icon-user"></i>
 						<input type="text" name="" id="addname" value="" placeholder="您的姓名" />
+						<p id="true-name" style="display:none;color:#f00;font-size:16px;">输入有误</p>
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-phone"></i>
 						<input type="text" name="" id="addphone" value="" placeholder="您的手机号码" />
+					    <p id="true-phone" style="display:none;color:#f00;font-size:16px;">输入有误</p>
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-calendar"></i>
-						<input type="text" name="" id="addtime" value="" placeholder="请选择看房时间" />
+						<input type="text" name="" id="addtime"onClick="calendar.show({ id: this });
+                                                                         var oCalendar = document.getElementById('_calendar');
+
+                                                                                 console.log(oCalendar);
+                                                                                 oCalendar.style.zIndex = 9999999;
+                                                                         var oCalyear = document.getElementById('_calyear');
+                                                                         oCalyear.style.width = 42 + 'px';
+                                                                         oCalyear.style.height = 6 + 'px';
+                                                                         var oCalmod = document.getElementById('_calmod');
+                                                                                   oCalmod.style.width = 42 + 'px';
+                                                                                   oCalmod.style.height = 6 + 'px';
+                                                                         " value="" placeholder="请选择看房时间" />
 					</li>
+
+
 				</ul>
 				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
 			</div>
@@ -335,4 +360,34 @@
 			})
 		}	
 	</script>
+	<script>
+	    var oPhone = document.getElementById("addphone");
+	    var reg = /^(1[3-9][0-9]{9})$|(15[89][0-9]{8})$/;
+	    var oTruePhone = document.getElementById("true-phone");
+
+        oPhone.onblur = function () {
+            var str = parseInt(oPhone.value);
+            if(!reg.test(str)){
+                oTruePhone.style.display = "block";
+            }else{
+                oTruePhone.style.display = "none";
+            }
+        }
+	</script>
+
+		<script>
+    	    var oName = document.getElementById("addname");
+    	    var reg = /^[\u4e00-\u9fa5 ]{2,20}$/;
+    	    var oTrueName = document.getElementById("true-name");
+
+            oName.onblur = function () {
+                var str = oName.value;
+                if(!reg.test(str)){
+                    oTrueName.style.display = "block";
+                }else{
+                    oTrueName.style.display = "none";
+                }
+            }
+    	</script>
+
 </html>
