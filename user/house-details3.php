@@ -58,31 +58,31 @@
 			<div class="service clearfloat">
 				<div class="slider one-time">
 					<div>
-						<img src="upload/room.jpg"/>
+						<img src="upload/room2.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑1</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠1</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 					<div>
-						<img src="upload/room.jpg"/>
+						<img src="upload/room2.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑2</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠2</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 					<div>
-						<img src="upload/room.jpg"/>
+						<img src="upload/room2.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑3</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠3</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 					<div>
-						<img src="upload/room.jpg"/>
+						<img src="upload/room2.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑4</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠4</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 				</div>
@@ -90,8 +90,8 @@
 			
 			<div class="service-top clearfloat box-s">
 				<div class="left fl clearfloat box-s">
-					<p class="tit titwo">2500<span>元/月</span></p>
-					<p class="fu-tit">三室一厅一卫   |  125m²  |  普装</p>
+					<p class="tit titwo">2200<span>元/月</span></p>
+					<p class="fu-tit">三室二厅一卫   |  118m²  |  普装</p>
 				</div>
 				<div class="right fl clearfloat">
 					<i class="iconfont icon-shoucang"></i>
@@ -107,14 +107,14 @@
 		    		<ul>
 		    			<li>类型：住宅</li>
 		    			<li>朝向：南</li>
-		    			<li>楼层：12/28 </li>
+		    			<li>楼层：4/28 </li>
 		    			<li>装修：精装修</li>
 		    			<li>现状：空闲</li>
-		    			<li>可入驻：2016/03/07</li>
-		    			<li>建造年代：2008年</li>
-		    			<li>可看房：2016/03/07以后</li>
+		    			<li>可入驻：2018/07/07</li>
+		    			<li>建造年代：2012年</li>
+		    			<li>可看房：2018/07/01以后</li>
 		    		</ul>
-		    		<p class="service-tit">交通：公交8路、111、124、136、156</p>
+		    		<p class="service-tit">交通：公交13路、17、98</p>
 		    	</div>		    	
 			</div>
 			
@@ -153,10 +153,8 @@
 		    		<p>房源描述</p>
 		    	</div>
 		    	<p class="tit box-s">
-		    		出租的房间是次卧，南北通透，阳光充足，空气流通，男女不限，带独
-					立卫生间，还有独立的厨房，是配置最齐全的 一个单间。出租的房间是
-					次卧，南北通透，阳光充足，空气流通，男女不限，带独立卫生间，还
-					有独立的厨房，是配置最齐全的 一个单间。
+		    		出租的房间是主卧，南北通透，阳光充足，空气流通，男女不限，带独
+					立卫生间，还有独立的厨房，是配置最齐全的 一个单间。
 		    	</p>
 			</div>
 			
@@ -169,12 +167,12 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
 			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="price">2500<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
 			    					三室一厅一卫   |  125m²  |  普装
@@ -186,15 +184,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room1.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
+			    					<p class="biaoti">西山雅苑</p>
 			    					<p class="price">1500<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室二厅一卫   |  105m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
@@ -203,15 +201,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/1room2.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="biaoti">东方明珠</p>
+			    					<p class="price">2200<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室一厅一卫   |  118m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
