@@ -154,9 +154,7 @@
 		    	</div>
 		    	<p class="tit box-s">
 		    		出租的房间是次卧，南北通透，阳光充足，空气流通，男女不限，带独
-					立卫生间，还有独立的厨房，是配置最齐全的 一个单间。出租的房间是
-					次卧，南北通透，阳光充足，空气流通，男女不限，带独立卫生间，还
-					有独立的厨房，是配置最齐全的 一个单间。
+					立卫生间，还有独立的厨房，是配置最齐全的一个单间。
 		    	</p>
 			</div>
 			
@@ -169,7 +167,7 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
@@ -186,15 +184,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room1.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="biaoti">西山雅苑</p>
+			    					<p class="price">1800<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室一厅一卫   |  105m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
@@ -203,15 +201,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room2.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="biaoti">东方明珠</p>
+			    					<p class="price">2200<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室二厅一卫   |  118m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
