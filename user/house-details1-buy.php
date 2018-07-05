@@ -225,7 +225,7 @@
 
 		
 		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">
+	    <div id="loginmodal" class="box-s loginmodal" style="display:none;top:5px !important;">
 			<form id="loginform" name="loginform" method="post" action="">		
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
@@ -233,7 +233,7 @@
 				正式订单
 			</div>
 			<div class="bottom clearfloat box-s">
-				<ul>
+				<ul id='move'>
 					<li class="clearfloat">
 						<i class="iconfont icon-user"></i>
 						<input type="text" name="" id="tid" value="" placeholder="您的ID" />
@@ -365,5 +365,12 @@
 				},300);
 			})
 		}	
+	</script>
+	<script>
+	    var oLoginmodal = document.getElementById("loginmodal");
+
+	    oLoginmodal.style.top = 5 + "px";
+
+	    console.log(oLoginmodal.style.top);
 	</script>
 </html>

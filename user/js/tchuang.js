@@ -6,7 +6,7 @@ $(function(){
 	
 	//弹出层调用语句
 	$('#modaltrigger').leanModal({
-		top:110,
+		top:5,
 		overlay:0.45,
 		closeButton:".hidemodal"
 	});
