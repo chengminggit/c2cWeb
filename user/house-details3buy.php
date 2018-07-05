@@ -220,13 +220,14 @@
 		</div>
 		
 		<div class="footer-look clearfloat" id="footer">
-			<a href="#loginmodal" id="modaltrigger">我要付款</a>
+			<a href="#loginmodal" id="modaltrigger">我要下单</a>
 		</div>
 
-		
+
+
 		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">
-			<form id="loginform" name="loginform" method="post" action="">		
+		<div id="loginmodal" class="box-s loginmodal" style="display:none;">
+			<form id="loginform" name="loginform" method="post" action="">
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
 			<div class="top clearfloat box-s">
@@ -236,51 +237,82 @@
 				<ul>
 					<li class="clearfloat">
 						<i class="iconfont icon-user"></i>
-						<input type="text" name="" id="addname" value="" placeholder="您的姓名" />
+						<input type="text" name="" id="tid" value="" placeholder="您的ID" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-phone"></i>
-						<input type="text" name="" id="addphone" value="" placeholder="您的手机号码" />
+						<input type="text" name="" id="tidentify" value="" placeholder="您的身份证号" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-calendar"></i>
-						<input type="text" name="" id="addtime" value="" placeholder="请选择看房时间" />
+						<input type="text" name="" id="lid" value="" placeholder="户主ID" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="lidentify" value="" placeholder="户主身份证号" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="hid" value="" placeholder="房间ID" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="sdate" value="" placeholder="开始日期" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="rent" value="" placeholder="租期（单位/月）" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="number" value="" placeholder="租住人数" />
 					</li>
 				</ul>
-				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
+				<input type="button" name="" id="pay" value="立即下单" class="btn" />
 			</div>
 		</div>
-	    <!--弹窗内容 end-->
+		<!--弹窗内容 end-->
 
 	</body>
 
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-	$("#lijiyuyue").on("click",function(){
-		var name=$("#addname").val().trim();
-		var phone=$("#addphone").val().trim();
-		var time=$("#addtime").val().trim();
+	$("#pay").on("click",function(){
+		var tid=$("#tid").val().trim();
+		var tidentify=$("#tidentify").val().trim();
+		var lid=$("#lid").val().trim();
+		var lidentify=$("#lidentify").val().trim();
+		var hid=$("#hid").val().trim();
+		var sdate=$("#sdate").val().trim();
+		var rent=$("#rent").val().trim();
+		var number=$("#number").val().trim();
 
 
-		if(name==""||phone==""||time==""){
-			alert("姓名，手机号，时间不能为空");
+
+		if(number==""){
+			alert("信息不能为空");
 			return false;
 		}
 		else{
 			$.ajax({
 				type:"get",
-				url:"../dboperate/reservation-add.php",
+				url:"../dboperate/formal_reservation_add.php",
 				async:false,
 				data:{
-					name:name,
-					phone:phone,
-					time:time
+					tid:tid,
+					tidentify:tidentify,
+					lid:lid,
+					lidentify:lidentify,
+					hid:hid,
+					sdate:sdate,
+					rent:rent,
+					number:number
 				},
 				dataType:"json",
 				success:function(msg){
-						alert("添加预定成功"+msg);
-						window.location.href="house-details.php";
+					alert("添加预定成功"+msg);
+					window.location.href="formal_reservation_add.php";
 
 				},
 				error: function(){
@@ -290,7 +322,8 @@
 			});
 		}
 	})
-	</script>
+</script>
+
 
 	<script>
 		var oLijiyuyue = document.getElementById("lijiyuyue");

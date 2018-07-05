@@ -302,7 +302,7 @@
 					phone:phone,
 					time:time
 				},
-				dataType:"json",
+				dataType:"text",
 				success:function(msg){
 						alert("添加预定成功"+msg);
 						window.location.href="house-details.php";
