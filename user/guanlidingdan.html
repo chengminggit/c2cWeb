@@ -15,6 +15,82 @@
     <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/loading.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <style>
+        .show{
+            width:1400px;
+            height:800px;
+            margin:auto;
+        }
+        table{
+            width: 1400px;
+            height: 640px;
+            margin:50px auto 0;
+            border-collapse: collapse;
+            border:1px solid #f00;
+        }
+        table tr th{
+            height: 70px;
+            background-color: #f90;
+            color: #fff;
+        }
+        table tr td{
+            width: 233px;
+            height: 140px;
+            text-align:center;
+        }
+        table tr td img{
+            height: 140px;
+        }
+        table tr td p{
+            width:180px;
+            height:45px;
+            margin:auto;
+            /*border:1px solid #ccc;*/
+            /*background-color: #0f0;*/
+        }
+        table tr td p span{
+            display:inline-block;
+            float:left;
+            height:45px;
+            line-height:45px;
+        }
+        table tr td p span.minus,
+        table tr td p span.add{
+            width:45px;
+            font-size:25px;
+            background-color: #ccc;
+            cursor:pointer;
+        }
+        table tr td p span.number{
+            width:90px;
+            height:43px;
+            color:#f00;
+            background-color: #fff;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+        }
+        .bottom{
+            width:1400px;
+            height:70px;
+            margin:10px auto;
+            background-color: #cd3266;
+        }
+        .bottom p{
+            margin-right:160px;
+            line-height:70px;
+            font-size:20px;
+            float:right;
+        }
+        .bottom p span{
+            font-size:25px;
+            color:yellow;
+        }
+        button{
+            background-color: #f90;
+            color:#fff;
+            width:50px;
+        }
+    </style>
 	<script type="text/javascript">
 		$(window).load(function(){
 			$(".loading").addClass("loader-chanage")
@@ -43,7 +119,56 @@
 		
 		<div class="about-detail clearfloat box-s" id="main">
 			<div class="ctent clearfloat box-s">
+               <div class="show">
+                   <table border="1">
+                       <tr>
+                           <th>id</th>
+                           <th>租户</th>
+                           <th>租金</th>
+                           <th>时间</th>
+                           <th>接受</th>
+                           <th>拒绝</th>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td class="price"></td>
+                           <td>
 
+                           </td>
+                           <td class="subtotal"></td>
+                           <td><button class="jieshou">接受</button></td>
+                           <td><button class="jujue">拒绝</button></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td class="price"></td>
+                           <td>
+
+                           </td>
+                           <td class="subtotal"></td>
+                           <td><button class="jieshou">接受</button></td>
+                           <td><button class="jujue">拒绝</button></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td class="price"></td>
+                           <td>
+                           </td>
+                           <td class="subtotal"></td>
+                           <td><button class="jieshou">接受</button></td>
+                           <td><button class="jujue">拒绝</button></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td class="price"></td>
+                           <td>
+                           </td>
+                           <td class="subtotal"></td>
+                           <td><button class="jieshou">接受</button></td>
+                           <td><button class="jujue">拒绝</button></td>
+                       </tr>
+                   </table>
+               </div>
 			</div>			
 		</div>
 	</body>
