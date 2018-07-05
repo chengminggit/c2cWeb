@@ -6,14 +6,14 @@
      * Time: 20:36
      */
 
-/*    $tid = $_GET['tid'];
+    $tid = $_GET['tid'];
     $tidentify = $_GET['tidentify'];
     $lid = $_GET['lid'];
     $lidentify = $_GET['lidentify'];
     $hid = $_GET['hid'];
     $sdate = $_GET['sdate'];
     $rent = $_GET['rent'];
-    $number = $_GET['number'];*/
+    $number = $_GET['number'];
 
     //$servername = "localhost";
     //$username = "test";
@@ -29,7 +29,7 @@
         echo("连接成功");
     }
     $conn->query("set names utf8");
-    $sql = "select max(id) as id from Reservation";
+    $sql = "select max(Id) as id from Reservation";
     $result = $conn->query($sql);
     $raw = $result->fetch_assoc();
     $id = $raw["id"]+1;

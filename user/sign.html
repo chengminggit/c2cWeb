@@ -45,7 +45,7 @@
 			<ul>
 				<li class="clearfloat">
 					<i class="iconfont icon-phone fl"></i>
-					<input type="text" id="phone" value="" placeholder="请输入手机号" class="fl phone" />
+					<input type="text" id="id" value="" placeholder="请输入id" class="fl phone" />
 				</li>
 				<li class="clearfloat">
 					<i class="iconfont icon-lock fl"></i>
@@ -68,19 +68,42 @@
 	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
 	<script>
-		var oPhone = document.getElementById("phone"),
-			oPassword = document.getElementById("password"),
-			oDenglu = document.getElementById("denglu");
+		var oDenglu = document.getElementById("denglu");
 
 		oDenglu.onclick = function () {
-			if(oPhone.value === '17863107533' && oPassword.value === "123456"){
-			    alert("成功登陆");
-			    window.location.href='p-center.html';
-			}else{
-			    alert("账号或密码错误");
+			var id=$("#id").val().trim();
+			var password=$("#password").val().trim();
+
+
+			if(id==""||password==""){
+				alert("信息不能为空");
+				return false;
 			}
+			else{
+				$.ajax({
+					type:"get",
+					url:"../dboperate/sign.php",
+					async:false,
+					data:{
+						id:id,
+						password:password,
+					},
+					dataType:"text",
+					success:function(msg){
+						alert(""+msg);
+						window.location.href="formal_reservation_add.php";
+
+					},
+					error: function(){
+						alert("服务器连接失败");
+						return false;
+					}
+				});
+			}
+			$.post('../dboperate/sign.php','',function(data){
+				alert(data);
+			});
         }
-
-
 	</script>
+
 </html>
