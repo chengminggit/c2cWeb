@@ -201,7 +201,7 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1room2.jpg"/>
+			    				<img src="upload/room2.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
