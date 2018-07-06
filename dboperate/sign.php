@@ -15,26 +15,32 @@
         die("连接失败: " . $conn->connect_error);
     }
     else{
-        echo("连接成功");
+        echo "连接成功";
     }
     $conn->query("set names utf8");
-    $sql="select id from Tenant where id=10 limit 1";
-    $rst = $conn->query($sql);
-    if($rst){
+    $sql="select * from Tenant where Id= $id";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0){
         $sql="SELECT password FROM Tenant WHERE Id=$id";
-        $rst = $conn->query($sql);
-
-        if($rst){
-            echo "登录成功";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+/*        if($rst == false){
+            $mes =  "该用户不存在";
+        }*/
+        if($row["password"]==$password){
+            $mes =  "登录成功";
             setcookie('mycookie',$id);
         }
         else{
-            echo "密码错误";
+            $mes =  "密码错误";
         }
     }
     else{
-        echo "该用户不存在";
+        $mes =  "该用户不存在";
     }
     $conn->close();
+
+    $mes = urlencode($mes);
+    echo urldecode(json_encode($mes))
 ?>
 
