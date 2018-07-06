@@ -255,7 +255,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="sign.html">
+					<a id="gerenzhongxin">
 						<i class="iconfont icon-gerenzhongxin"></i>
 						<p>个人中心</p>
 					</a>
@@ -300,4 +300,16 @@
 	
 	    });
 	</script>
+
+<script>
+	var oGerenzhongxin = document.getElementById("gerenzhongxin");
+	console.log(document.cookie);
+	oGerenzhongxin.onclick = function () {
+        if(document.cookie){
+            window.location.href="p-center.html";
+        }else{
+            window.location.href="sign.html";
+        }
+    }
+</script>
 </html>

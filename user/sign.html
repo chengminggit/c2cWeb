@@ -82,7 +82,7 @@
 			else{
 				$.ajax({
 					type:"get",
-					url:"../dboperate/sign.php",
+					url:"dboperate/sign.php",
 					async:false,
 					data:{
 						id:id,
@@ -100,7 +100,7 @@
 					}
 				});
 			}
-			$.post('../dboperate/sign.php','',function(data){
+			$.post('dboperate/sign.php','',function(data){
 				var arr = data;
 				var dataObj = eval("("+arr+")");
 				$.each(dataObj,function(idx,item){
@@ -108,7 +108,11 @@
 					alert(item.id+"哈哈"+item.name);
 				})
 			});
+
+            var oId = document.getElementById("id");
+            document.cookie = oId.value;
         }
+
 	</script>
 
 </html>
