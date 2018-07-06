@@ -45,7 +45,7 @@
 			<ul>
 				<li class="clearfloat">
 					<p class="tit fl">手机号</p>
-					<input type="text" id="" value="" class="shuru fl" placeholder="请输入手机号码" />
+					<input type="text" id="phone" value="" class="shuru fl" placeholder="请输入手机号码" />
 				</li>
 				<li class="clearfloat">
 					<p class="tit fl">验证码</p>
@@ -56,20 +56,20 @@
 				</li>
 				<li class="clearfloat">
 					<p class="tit fl">密码</p>
-					<input type="text" id="" value="" class="shuru fl" placeholder="请设置密码" />
+					<input type="text" id="password" value="" class="shuru fl" placeholder="请设置密码" />
 				</li>
 				<li class="clearfloat">
 					<p class="tit fl">确认密码</p>
-					<input type="text" id="" value="" class="shuru fl" placeholder="请再次输入密码" />
+					<input type="text" id="password1" value="" class="shuru fl" placeholder="请再次输入密码" />
 				</li>
 			</ul>
-			<a href="p-center.html" class="pay-btn clearfloat">
+			<a href="#" class="pay-btn clearfloat" id="zhuce">
 				注册
 			</a>
 			<div class="bottom clearfloat">
 				<p class="fl">
 					已有账号？
-					<a href="register.html">立即登录</a>
+					<a href="sign.html">立即登录</a>
 				</p>
 			</div>
 		</div>
@@ -85,15 +85,54 @@
 	    		</div>
 	    	</div>
 			<form id="loginform" name="loginform" method="post" action="">		
-				<div class="center fl"><input type="submit" name="loginbtn" id="loginbtn" class="hidemodal" value="取消" tabindex="3"></div>
+				<div class="center fl"><input type="submit" name="loginbtn" id="cancelbtn" class="hidemodal" value="取消" tabindex="3"></div>
 				<div class="center fl"><input type="submit" name="loginbtn" id="loginbtn" class="hidemodal" value="确定" tabindex="3"></div>
 			</form>			
 		</div>
 	    <!--弹窗内容 end-->
 	</body>
+
+<script type="text/javascript">
+
+
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 	<script type="text/javascript" src="js/tchuang.js" ></script>
+	<script>
+		var oZhuce = document.getElementById("zhuce");
+
+		oZhuce.onclick = function(){
+			var phone = $("#phone").val().trim();
+			var password = $("#password").val().trim();
+
+			if(phone==""||password==""){
+				alert("手机号，密码不能为空");
+				return false;
+			}
+			else{
+				$.ajax({
+					type:"get",
+					url:"../dboperate/register.php",
+					async:false,
+					data:{
+						phone:phone,
+						password:password
+					},
+					dataType:"text",
+					success:function(msg){
+						alert("注册成功"+msg);
+						window.location.href="p-center.html";
+
+					},
+					error: function(){
+						alert("服务器连接失败");
+						return false;
+					}
+				});
+			}
+		}
+
+	</script>
 </html>
