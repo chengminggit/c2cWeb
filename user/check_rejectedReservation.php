@@ -200,7 +200,7 @@
         if (judge == 1) {
             $.ajax({
                 type: "get",
-                url: "../dboperate/delete_reservation.php",
+                url: "dboperate/delete_reservation.php",
                 async: false,
                 data: {
                     id: id

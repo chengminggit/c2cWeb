@@ -218,7 +218,7 @@
         {
             $.ajax({
                 type:"get",
-                url:"../dboperate/accept_reservation.php",
+                url:"dboperate/accept_reservation.php",
                 async:false,
                 data:{
                     id:id
@@ -248,7 +248,7 @@
         {
             $.ajax({
                 type:"get",
-                url:"../dboperate/refuse_reservation.php",
+                url:"dboperate/refuse_reservation.php",
                 async:false,
                 data:{
                     id:id

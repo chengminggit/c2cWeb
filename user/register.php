@@ -114,7 +114,7 @@
 			else{
 				$.ajax({
 					type:"get",
-					url:"../dboperate/register.php",
+					url:"dboperate/register.php",
 					async:false,
 					data:{
 						phone:phone,

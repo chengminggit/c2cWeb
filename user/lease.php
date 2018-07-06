@@ -118,7 +118,7 @@
 				else{
 					$.ajax({
 						type:"get",
-						url:"../dboperate/houselease-add.php",
+						url:"dboperate/houselease-add.php",
 						async:false,
 						data:{
 							lessorName:lessorName,

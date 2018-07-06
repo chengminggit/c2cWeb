@@ -297,7 +297,7 @@
 		else{
 			$.ajax({
 				type:"get",
-				url:"../dboperate/formal_reservation_add.php",
+				url:"dboperate/formal_reservation_add.php",
 				async:false,
 				data:{
 					tid:tid,

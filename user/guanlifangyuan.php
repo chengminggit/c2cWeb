@@ -279,7 +279,7 @@
 		{
 			$.ajax({
 				type:"get",
-				url:"../dboperate/houseinfo_delete.php",
+				url:"dboperate/houseinfo_delete.php",
 				async:false,
 				data:{
 					id:id
@@ -324,7 +324,7 @@
 
 		$.ajax({
 			type:"get",
-			url:"../dboperate/houseinfo_modify.php",
+			url:"dboperate/houseinfo_modify.php",
 			async:false,
 			data:{
 				id:id,

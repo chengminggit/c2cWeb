@@ -295,7 +295,7 @@
 		else{
 			$.ajax({
 				type:"get",
-				url:"../dboperate/reservation-add.php",
+				url:"dboperate/reservation-add.php",
 				async:false,
 				data:{
 					name:name,
