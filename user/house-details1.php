@@ -362,12 +362,12 @@
 	</script>
 	<script>
 	    var oPhone = document.getElementById("addphone");
-	    var reg = /^(1[3-9][0-9]{9})$|(15[89][0-9]{8})$/;
+	    var rega = /^1(3|4|5|7|8)\d{9}$/;
 	    var oTruePhone = document.getElementById("true-phone");
 
         oPhone.onblur = function () {
             var str = parseInt(oPhone.value);
-            if(!reg.test(str)){
+            if(!rega.test(str)){
                 oTruePhone.style.display = "block";
             }else{
                 oTruePhone.style.display = "none";
