@@ -58,31 +58,31 @@
 			<div class="service clearfloat">
 				<div class="slider one-time">
 					<div>
-						<img src="upload/room.jpg"/>
+						<img src="upload/room2.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑1</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠1</p>
+							<p class="two">环翠区-文化西路</p>
+						</div>
+					</div>
+					<div>
+						<img src="upload/room2.jpg"/>
+						<div class="tit clearfloat box-s">
+							<p class="one">东方明珠2</p>
+							<p class="two">环翠区-文化西路</p>
+						</div>
+					</div>
+					<div>
+						<img src="upload/room2.jpg"/>
+						<div class="tit clearfloat box-s">
+							<p class="one">东方明珠3</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 					<div>
 						<img src="upload/room.jpg"/>
 						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑2</p>
-							<p class="two">蜀山区-望潜交口</p>
-						</div>
-					</div>
-					<div>
-						<img src="upload/room.jpg"/>
-						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑3</p>
-							<p class="two">蜀山区-望潜交口</p>
-						</div>
-					</div>
-					<div>
-						<img src="upload/room.jpg"/>
-						<div class="tit clearfloat box-s">
-							<p class="one">华府骏苑4</p>
-							<p class="two">蜀山区-望潜交口</p>
+							<p class="one">东方明珠4</p>
+							<p class="two">环翠区-文化西路</p>
 						</div>
 					</div>
 				</div>
@@ -90,8 +90,8 @@
 			
 			<div class="service-top clearfloat box-s">
 				<div class="left fl clearfloat box-s">
-					<p class="tit titwo">2500<span>元/月</span></p>
-					<p class="fu-tit">三室一厅一卫   |  125m²  |  普装</p>
+					<p class="tit titwo">2200<span>元/月</span></p>
+					<p class="fu-tit">三室二厅一卫   |  118m²  |  普装</p>
 				</div>
 				<div class="right fl clearfloat">
 					<i class="iconfont icon-shoucang"></i>
@@ -107,14 +107,14 @@
 		    		<ul>
 		    			<li>类型：住宅</li>
 		    			<li>朝向：南</li>
-		    			<li>楼层：12/28 </li>
+		    			<li>楼层：4/28 </li>
 		    			<li>装修：精装修</li>
 		    			<li>现状：空闲</li>
-		    			<li>可入驻：2016/03/07</li>
-		    			<li>建造年代：2008年</li>
-		    			<li>可看房：2016/03/07以后</li>
+		    			<li>可入驻：2018/07/07</li>
+		    			<li>建造年代：2012年</li>
+		    			<li>可看房：2018/07/01以后</li>
 		    		</ul>
-		    		<p class="service-tit">交通：公交8路、111、124、136、156</p>
+		    		<p class="service-tit">交通：公交13路、17、98</p>
 		    	</div>		    	
 			</div>
 			
@@ -153,10 +153,8 @@
 		    		<p>房源描述</p>
 		    	</div>
 		    	<p class="tit box-s">
-		    		出租的房间是次卧，南北通透，阳光充足，空气流通，男女不限，带独
-					立卫生间，还有独立的厨房，是配置最齐全的 一个单间。出租的房间是
-					次卧，南北通透，阳光充足，空气流通，男女不限，带独立卫生间，还
-					有独立的厨房，是配置最齐全的 一个单间。
+		    		出租的房间是主卧，南北通透，阳光充足，空气流通，男女不限，带独
+					立卫生间，还有独立的厨房，是配置最齐全的 一个单间。
 		    	</p>
 			</div>
 			
@@ -169,12 +167,12 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
 			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="price">2500<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
 			    					三室一厅一卫   |  125m²  |  普装
@@ -186,15 +184,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room1.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="biaoti">西山雅苑</p>
+			    					<p class="price">1800<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室二厅一卫   |  105m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
@@ -203,15 +201,15 @@
 		    			<a href="house-details.php">
 			    			<div class="tu">
 			    				<span></span>
-			    				<img src="upload/1.jpg"/>
+			    				<img src="upload/room2.jpg"/>
 			    			</div>
 			    			<div class="bottom clearfloat">
 			    				<div class="top clearfloat">
-			    					<p class="biaoti">华府骏苑</p>
-			    					<p class="price">1500<span>元/月</span></p>
+			    					<p class="biaoti">东方明珠</p>
+			    					<p class="price">2200<span>元/月</span></p>
 			    				</div>
 			    				<p class="fu-tit">
-			    					三室一厅一卫   |  125m²  |  普装
+			    					三室二厅一卫   |  118m²  |  普装
 			    				</p>
 			    			</div>
 		    			</a>
@@ -222,67 +220,99 @@
 		</div>
 		
 		<div class="footer-look clearfloat" id="footer">
-			<a href="#loginmodal" id="modaltrigger">我要看房</a>
+			<a href="#loginmodal" id="modaltrigger">我要下单</a>
 		</div>
-		
-		
+
+
+
 		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodal" style="display:none;">	    	
-			<form id="loginform" name="loginform" method="post" action="">		
+		<div id="loginmodal" class="box-s loginmodal" style="display:none;">
+			<form id="loginform" name="loginform" method="post" action="">
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="" tabindex="3"></div>
 			</form>
 			<div class="top clearfloat box-s">
-				填写信息
+				正式订单
 			</div>
 			<div class="bottom clearfloat box-s">
 				<ul>
 					<li class="clearfloat">
 						<i class="iconfont icon-user"></i>
-						<input type="text" name="" id="addname" value="" placeholder="您的姓名" />
+						<input type="text" name="" id="tid" value="" placeholder="您的ID" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-phone"></i>
-						<input type="text" name="" id="addphone" value="" placeholder="您的手机号码" />
+						<input type="text" name="" id="tidentify" value="" placeholder="您的身份证号" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-calendar"></i>
-						<input type="text" name="" id="addtime" value="" placeholder="请选择看房时间" />
+						<input type="text" name="" id="lid" value="" placeholder="户主ID" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="lidentify" value="" placeholder="户主身份证号" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="hid" value="" placeholder="房间ID" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="sdate" value="" placeholder="开始日期" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="rent" value="" placeholder="租期（单位/月）" />
+					</li>
+					<li class="clearfloat">
+						<i class="iconfont icon-user"></i>
+						<input type="text" name="" id="number" value="" placeholder="租住人数" />
 					</li>
 				</ul>
-				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
+				<input type="button" name="" id="pay" value="立即下单" class="btn" />
 			</div>
 		</div>
-	    <!--弹窗内容 end-->
-		
+		<!--弹窗内容 end-->
+
 	</body>
 
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-	$("#lijiyuyue").on("click",function(){
-		var name=$("#addname").val().trim();
-		var phone=$("#addphone").val().trim();
-		var time=$("#addtime").val().trim();
+	$("#pay").on("click",function(){
+		var tid=$("#tid").val().trim();
+		var tidentify=$("#tidentify").val().trim();
+		var lid=$("#lid").val().trim();
+		var lidentify=$("#lidentify").val().trim();
+		var hid=$("#hid").val().trim();
+		var sdate=$("#sdate").val().trim();
+		var rent=$("#rent").val().trim();
+		var number=$("#number").val().trim();
 
 
-		if(name==""||phone==""||time==""){
-			alert("姓名，手机号，时间不能为空");
+
+		if(number==""){
+			alert("信息不能为空");
 			return false;
 		}
 		else{
 			$.ajax({
 				type:"get",
-				url:"../dboperate/reservation-add.php",
+				url:"../dboperate/formal_reservation_add.php",
 				async:false,
 				data:{
-					name:name,
-					phone:phone,
-					time:time
+					tid:tid,
+					tidentify:tidentify,
+					lid:lid,
+					lidentify:lidentify,
+					hid:hid,
+					sdate:sdate,
+					rent:rent,
+					number:number
 				},
 				dataType:"json",
 				success:function(msg){
-						alert("添加预定成功"+msg);
-						window.location.href="house-details.php";
+					alert("添加预定成功"+msg);
+					window.location.href="formal_reservation_add.php";
 
 				},
 				error: function(){
@@ -292,7 +322,8 @@
 			});
 		}
 	})
-	</script>
+</script>
+
 
 	<script>
 		var oLijiyuyue = document.getElementById("lijiyuyue");

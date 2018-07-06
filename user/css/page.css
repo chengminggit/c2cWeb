@@ -131,7 +131,7 @@
 
 /*弹窗内容*/
 #lean_overlay{position:fixed;z-index:100000;top:0px;left:0px;height:100%;width:100%;	background:#000;display:none;}
-#loginmodal{width:76%; min-height: 200px;background:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-webkit-box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);position: relative;}
+#loginmodal,#loginmodall{width:76%; min-height: 200px;background:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-webkit-box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);box-shadow:0 1px 5px rgba(0, 0, 0, 0.5);position: relative;}
 #loginform label{display:block; font-size:1.1em; font-weight:bold; color:#7c8291; margin-bottom:3px; }
 #loginform .flatbtn-blu{position: absolute;right: -40px;top: -40px;background: url(../img/close.png) center no-repeat; background-size: 100%; width: 100px;height: 92px;border: none;cursor: pointer;}
 #loginmodal .top{width: 100%; font-size: .42rem; color: #333333; padding-left: .5rem; line-height: 1rem;}

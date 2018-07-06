@@ -140,7 +140,7 @@
                 </tr></table></div></div></div>
 
 <div class="about-detail clearfloat box-s" id="main">
-    <div class="ctent clearfloat box-s">
+    <div class="ctent clearfloat box-s" style="position:absolute;top:230px;">
         <div class="show">
             <table border="1">
                 <tr>
