@@ -280,7 +280,7 @@
 				dataType:"json",
 				success:function(msg){
 						alert("添加预定成功"+msg);
-						window.location.href="house-details.php";
+						window.location.href="house-details3.php";
 
 				},
 				error: function(){
