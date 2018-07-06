@@ -259,7 +259,7 @@
 						<input type="text" name="" id="addtime"onClick="calendar.show({ id: this });
                                                                          var oCalendar = document.getElementById('_calendar');
 
-                                                                                 console.log(oCalendar);
+                                                                                 oCalendar.style.position = 'fixed';
                                                                                  oCalendar.style.zIndex = 9999999;
                                                                          var oCalyear = document.getElementById('_calyear');
                                                                          oCalyear.style.width = 42 + 'px';
