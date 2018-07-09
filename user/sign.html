@@ -91,8 +91,14 @@
 					dataType:"text",
 					success:function(msg){
 						alert(""+msg);
-						window.location.href="index.html";
-
+						s = JSON.parse(msg);
+						a = "登录成功";
+						if(s == a){
+							window.location.href="index.html";
+						}
+						else{
+							window.location.href="sign.html";
+						}
 					},
 					error: function(){
 						alert("服务器连接失败");
