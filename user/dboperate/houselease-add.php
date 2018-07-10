@@ -5,7 +5,7 @@
  * Date: 2018/7/5
  * Time: 9:24
  */
-$lessorID = $_GET['lessorID'];
+$cookieid = $_COOKIE["logid"];
 $city = $_GET['city'];
 $county = $_GET['county'];
 $street = $_GET['street'];
@@ -37,7 +37,7 @@ $result = $conn->query($sql);
 $raw = $result->fetch_assoc();
 $id = $raw["id"]+1;
 $conn->query("set names utf8");
-$sql= "INSERT INTO house (ID, lessorID, status, city, county, street, area, rent, discount,house.type) VALUES ('$id','$lessorID', 1,'$city', '$county', '$street', '$area', '$rent', 1, '$type')";
+$sql= "INSERT INTO house (ID, lessorID, status, city, county, street, area, rent, discount,house.type) VALUES ('$id','$cookieid', 1,'$city', '$county', '$street', '$area', '$rent', 1, '$type')";
 
 $result = $conn->query($sql);
 $conn->close();
