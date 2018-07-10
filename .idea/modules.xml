@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/c2cWeb.iml" filepath="$PROJECT_DIR$/.idea/c2cWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/c2cweb.iml" filepath="$PROJECT_DIR$/.idea/c2cweb.iml" />
     </modules>
   </component>
 </project>
