@@ -1,5 +1,5 @@
 <?php
-
+ 
 
     $id = $_GET['id'];
     $password = $_GET['password'];
@@ -15,10 +15,10 @@
         die("连接失败: " . $conn->connect_error);
     }
     $conn->query("set names utf8");
-    $sql="select * from Tenant where Id= $id";
+    $sql="select * from user where id= $id";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0){
-        $sql="SELECT password FROM Tenant WHERE Id=$id";
+        $sql="SELECT password FROM user WHERE id=$id";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 /*        if($rst == false){
@@ -38,6 +38,6 @@
     $conn->close();
 
     $mes = urlencode($mes);
-    echo urldecode(json_encode($mes))
+    echo urldecode(json_encode($mes));
 ?>
 

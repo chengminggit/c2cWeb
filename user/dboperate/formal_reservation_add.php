@@ -33,7 +33,6 @@
     $result = $conn->query($sql);
     $raw = $result->fetch_assoc();
     $id = $raw["id"]+1;
-    echo "$id";
     $sql= "INSERT INTO Reservation  VALUES ('$id', '$hid', '$lid','$lidentify','$tid','$tidentify','1','$sdate','$rent','$number')";
     $result = $conn->query($sql);
     $conn->close();

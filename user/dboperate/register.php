@@ -13,13 +13,24 @@ $conn = new mysqli("racjsrlrsdmr.mysql.sae.sina.com.cn", "test", "123456","test"
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
-else{
-    echo("连接成功");
-}
 $conn->query("set names utf8");
-$sql= "INSERT INTO register (phone, password) VALUES ('$phone', '$password')";
-
-$result = $conn->query($sql);
+$sql = "select * from user where telephone= '$phone'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0){
+    $mes = array('first'=>'手机号已存在');
+}
+else{
+    $sql = "select max(id) as id from user";
+    $result = $conn->query($sql);
+    $raw = $result->fetch_assoc();
+    $id = $raw["id"]+1;
+    $sql= "INSERT INTO user (id,telephone, password) VALUES ('$id','$phone', '$password')";
+    $result = $conn->query($sql);
+    $mes = array('first'=>'注册成功','m'=>$id);
+}
 $conn->close();
-echo json_encode("1");
+foreach ( $mes as $key => $value ) {
+    $mes[$key] = urlencode ( $value );
+}
+echo urldecode(json_encode($mes));
 ?>
