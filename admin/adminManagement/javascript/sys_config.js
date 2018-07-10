@@ -42,7 +42,7 @@ layui.use(['element','form'], function(){
     // | 监听提交
     // +----------------------------------------------------------------------
     form.on('submit(formDemo)', function(data){
-        layer.msg(JSON.stringify(data.field));
+        //layer.msg(JSON.stringify(data.field));
 		console.log(JSON.stringify(data.field));
 		console.log(data.field,data.field.title,data.field.password,data.field.desc);
         return false;

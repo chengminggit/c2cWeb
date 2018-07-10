@@ -55,7 +55,7 @@
 						<a href="empty-list.html">待评价</a>
 					</li>
 					<li>
-						<a href="finish-list.html">已完成</a>
+						<a href="empty-list.html">已完成</a>
 					</li>
 				</ul>
 			</div>
@@ -94,29 +94,8 @@
 				</div>
 				<div class="topsche-top entrust box-s clearfloat">
 					<a href="#" class="tit fr entrust-btn rent-btn" id="pingjia">
-						评价
+						完成
 					</a>
-				</div>
-
-				<script type="text/javascript" src="js/jquery1.js"></script>
-				<div class="order-list">
-					<section>
-						<div class="order-list-Below">
-							<h1>商品评价</h1>
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-							<div class="order-textbox">
-								<textarea placeholder="在此输入商品评价" id="wodepingjia"></textarea>
-							</div>
-							<p style="font-size:18px;cursor:pointer;" id="fabiao">发表</p>
-						</div>
-					</section>
-
 				</div>
 
 			</div>
@@ -130,54 +109,7 @@
 	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
 
-<script type="text/javascript">
-    $(".order-list-Below ul li").click(
-        function(){
-            var num = $(this).index()+1;
-            var len = $(this).index();
-            var thats = $(this).parent(".order-list-Below ul").find("li");
-            if($(thats).eq(len).attr("class")=="on"){
-                if($(thats).eq(num).attr("class")=="on"){
-                    $(thats).removeClass();
-                    for (var i=0 ; i<num; i++) {
-                        $(thats).eq(i).addClass("on");
-                    }
-                }else{
-                    $(thats).removeClass();
-                    for (var k=0 ; k<len; k++) {
-                        $(thats).eq(k).addClass("on");
-                    }
-                }
-            }else{
-                $(thats).removeClass();
-                for (var j=0 ; j<num; j++) {
-                    $(thats).eq(j).addClass("on");
-                }
-            }
-        }
-    );
-</script>
 
-<script>
-    var oRderList = document.getElementsByClassName("order-list")[0],
-		oPingjia = document.getElementById("pingjia"),
-		oFabiao = document.getElementById("fabiao"),
-        oContent = document.getElementsByClassName("content")[0],
-    	oDiv = document.createElement("div"),
-		oWodepingjia = document.getElementById("wodepingjia");
 
-    oRderList.style.display = "none";
-
-    oPingjia.onclick = function () {
-        oRderList.style.display = "block";
-    }
-    oFabiao.onclick = function () {
-        oRderList.style.display = "none";
-        oDiv.innerHTML = oWodepingjia.value;
-        oDiv.style.fontSize = "18px";
-       oContent.appendChild(oDiv);
-
-    }
-</script>
 
 </html>
