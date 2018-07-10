@@ -57,10 +57,6 @@
 				<div class="land-ctent land-ctenttwo clearfloat">
 					<ul>
 						<li class="box-s clearfloat">
-							<p class="tit fl">您的租户ID</p>
-							<input type="text" name="" id="addID" value="" placeholder="请输入您的租户ID" class="fl" />
-						</li>
-						<li class="box-s clearfloat">
 							<p class="tit fl">城市</p>
 							<input type="text" name="" id="addcity" value="" placeholder="请输入城市" class="fl" />
 						</li>
@@ -108,7 +104,6 @@
 		<script type="text/javascript">
 
 			$("#submit").on("click",function(){
-				var lessorID=$("#addID").val().trim();
 				var city=$("#addcity").val().trim();
 				var county =$("#addcounty").val().trim();
 				var street=$("#addstreet").val().trim();
@@ -117,8 +112,8 @@
 				var type=$("#addtype").val().trim();
 
 
-				if(lessorID==""||city==""||county==""||street==""||area==""||rent==""||type==""){
-					alert("租户ID，城市，所在区，街道，面积，租金，房屋类型不能为空");
+				if(city==""||county==""||street==""||area==""||rent==""||type==""){
+					alert("城市，所在区，街道，面积，租金，房屋类型不能为空");
 					return false;
 				}
 				else{
@@ -127,7 +122,6 @@
 						url:"dboperate/houselease-add.php",
 						async:false,
 						data:{
-							lessorID:lessorID,
 							city:city,
 							county:county,
 							street:street,
@@ -181,8 +175,8 @@
 			</ul>
 		</footer>
 		
-		<!--弹窗内容 star-->
-	    <div id="loginmodal" class="box-s loginmodaltwo" style="display:none;">	    	
+<!--		<!--弹窗内容 star-->
+<!--	    <div id="loginmodal" class="box-s loginmodaltwo" style="display:none;">
 			<form id="loginform" name="loginform" method="post" action="">		
 				<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blutwo hidemodal" value="" tabindex="3"></div>
 			</form>
@@ -200,9 +194,10 @@
 				</div>
 				<input type="button" name="" id="" value="好的，我知道了" class="btn btn1" />
 			</div>
-		</div>
-	    <!--弹窗内容 end-->
+		</div>-->
+	    <!--弹窗内容 end-->-->
 	</body>
+
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script type="text/javascript" src="slick/slick.min.js" ></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
