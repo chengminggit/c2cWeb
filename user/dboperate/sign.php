@@ -14,9 +14,6 @@
     if ($conn->connect_error) {
         die("连接失败: " . $conn->connect_error);
     }
-    else{
-        echo "连接成功";
-    }
     $conn->query("set names utf8");
     $sql="select * from Tenant where Id= $id";
     $result = mysqli_query($conn, $sql);
