@@ -38,7 +38,7 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">发布公告</a>
           <dl class="layui-nav-child">
-            <dd><a class="layui-this" href="sysConfig.html">免责声明</a></dd>
+            <dd><a class="layui-this" href="sysConfig.php">免责声明</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
