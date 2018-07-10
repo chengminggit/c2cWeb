@@ -94,6 +94,8 @@
 						//s = JSON.parse(msg);
 						a = "登录成功";
 						if(msg == a){
+							var oId = document.getElementById("id");
+							document.cookie = oId.value;
 							window.location.href="index.html";
 						}
 						else{
@@ -106,8 +108,7 @@
 					}
 				});
 			}
-            var oId = document.getElementById("id");
-            document.cookie = oId.value;
+
         }
 
 	</script>
