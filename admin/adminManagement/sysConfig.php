@@ -90,12 +90,6 @@
                         <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" id="title">
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">密码</label>
-                        <div class="layui-input-inline">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="password">
-                        </div>
-                    </div>
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">文本域</label>
                         <div class="layui-input-block">
@@ -128,10 +122,9 @@
 
     oSubmit.onclick = function(){
         var title = $("#title").val().trim();
-        var password = $("#password").val().trim();
         var text = $("#text").val().trim();
 
-        if(title==""||password==""||text==""){
+        if(title==""||text==""){
             alert("标题，密码，内容不能为空");
             return false;
         }
@@ -142,12 +135,11 @@
                 async:false,
                 data:{
                     title:title,
-                    password:password,
-                    text:text,
+                    text:text
                 },
                 dataType:"text",
                 success:function(msg){
-                    alert("提交成功"+msg);
+                    alert("提交成功");
                     //window.location.href="p-center.html";
 
                 },

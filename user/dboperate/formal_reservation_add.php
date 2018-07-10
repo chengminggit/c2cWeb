@@ -6,7 +6,6 @@
      * Time: 20:36
      */
 
-    $tid = $_GET['tid'];
     $tidentify = $_GET['tidentify'];
     $lid = $_GET['lid'];
     $lidentify = $_GET['lidentify'];
@@ -14,6 +13,7 @@
     $sdate = $_GET['sdate'];
     $rent = $_GET['rent'];
     $number = $_GET['number'];
+    $cookieid = $_COOKIE["logid"];
 
     //$servername = "localhost";
     //$username = "test";
@@ -25,17 +25,13 @@
     if ($conn->connect_error) {
         die("连接失败: " . $conn->connect_error);
     }
-    else{
-        echo("连接成功");
-    }
     $conn->query("set names utf8");
     $sql = "select max(Id) as id from Reservation";
     $result = $conn->query($sql);
     $raw = $result->fetch_assoc();
     $id = $raw["id"]+1;
-    $sql= "INSERT INTO Reservation  VALUES ('$id', '$hid', '$lid','$lidentify','$tid','$tidentify','1','$sdate','$rent','$number')";
+    $sql= "INSERT INTO Reservation  VALUES ('$id', '$hid', '$lid','$lidentify','$cookieid','$tidentify','1','$sdate','$rent','$number')";
     $result = $conn->query($sql);
     $conn->close();
-    echo json_encode("1");
 ?>
 

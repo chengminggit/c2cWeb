@@ -57,32 +57,37 @@
 				<div class="land-ctent land-ctenttwo clearfloat">
 					<ul>
 						<li class="box-s clearfloat">
-							<p class="tit fl">您的姓名</p>
-							<input type="text" name="" id="addname" value="" placeholder="我们如何称呼您" class="fl" />
+							<p class="tit fl">您的租户ID</p>
+							<input type="text" name="" id="addID" value="" placeholder="请输入您的租户ID" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
-							<p class="tit fl">手机号码</p>
-							<input type="text" name="" id="addphone" value="" placeholder="我们会及时和您取得联系" class="fl" />
+							<p class="tit fl">城市</p>
+							<input type="text" name="" id="addcity" value="" placeholder="请输入城市" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
-							<p class="tit fl">小区名称</p>
-							<input type="text" name="" id="addcommunityname" value="" placeholder="请输入小区名称" class="fl" />
+							<p class="tit fl">所在区</p>
+							<input type="text" name="" id="addcounty" value="" placeholder="请输入所在区名称" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
-							<p class="tit fl">意向租金</p>
-							<input type="text" name="" id="addrent" value="" placeholder="例如5000" class="fl" />
+							<p class="tit fl">街道</p>
+							<input type="text" name="" id="addstreet" value="" placeholder="请输入街道" class="fl" />
 						</li>
 						<li class="box-s clearfloat">
-							<p class="tit fl">起租日期</p>
-							<input type="text" name="" id="addtime" value="" placeholder="请选择起租日期" class="fl" />
+							<p class="tit fl">面积</p>
+							<input type="text" name="" id="addarea" value="" placeholder="请输入房屋面积" class="fl" />
 							<!--<button id='demo2' data-options='{"type":"date","beginYear":2014,"endYear":2016}' class="btnfour mui-btn mui-btn-block fl day">请选择起租日期</button>-->
 							<!--<i class="iconfont icon-arrowright fl"></i>-->
 						</li>
 						<li class="box-s clearfloat" id='showUserPicker'>
-							<p class="tit fl">租房类型</p>
-							<input type="text" name="" id="addtype" value=""  placeholder="公寓" class="fl" />
+							<p class="tit fl">租金</p>
+							<input type="text" name="" id="addrent" value=""  placeholder="请输入预期租金" class="fl" />
 							<!--<i class="iconfont icon-arrowright fl"></i>-->
 						</li>
+						<li class="box-s clearfloat">
+							<p class="tit fl">房屋类型</p>
+							<input type="text" name="" id="addtype" value="" placeholder="1.宾馆；类型2.别墅；3.民房；4.公寓" class="fl" />
+						</li>
+
 						<!--<li class="box-s clearfloat">-->
 							<!--<p class="tit fl">意向户型</p>-->
 							<!--<input type="text" name="" id="" value="" readonly="readonly" placeholder="请选择户型" class="fl day" />-->
@@ -103,16 +108,17 @@
 		<script type="text/javascript">
 
 			$("#submit").on("click",function(){
-				var lessorName=$("#addname").val().trim();
-				var lessorPhone=$("#addphone").val().trim();
-				var communityName =$("#addcommunityname").val().trim();
+				var lessorID=$("#addID").val().trim();
+				var city=$("#addcity").val().trim();
+				var county =$("#addcounty").val().trim();
+				var street=$("#addstreet").val().trim();
+				var area=$("#addarea").val().trim();
 				var rent=$("#addrent").val().trim();
-				var rentTime=$("#addtime").val().trim();
-				var houseType=$("#addtype").val().trim();
+				var type=$("#addtype").val().trim();
 
 
-				if(lessorName==""||lessorPhone==""||communityName==""||rent==""||rentTime==""||houseType==""){
-					alert("姓名，手机号，小区名字，租金，日期，房屋种类不能为空");
+				if(lessorID==""||city==""||county==""||street==""||area==""||rent==""||type==""){
+					alert("租户ID，城市，所在区，街道，面积，租金，房屋类型不能为空");
 					return false;
 				}
 				else{
@@ -121,17 +127,18 @@
 						url:"dboperate/houselease-add.php",
 						async:false,
 						data:{
-							lessorName:lessorName,
-							lessorPhone:lessorPhone,
-							county:communityName,
+							lessorID:lessorID,
+							city:city,
+							county:county,
+							street:street,
+							area:area,
 							rent:rent,
-							rentTime:rentTime,
-							houseType:houseType
+							type:type
 						},
-						dataType:"json",
+						dataType:"text",
 						success:function(msg){
 							alert("添加预定成功"+msg);
-							window.location.href="house-details.php";
+							window.location.href="house-details1.php";
 
 						},
 						error: function(){

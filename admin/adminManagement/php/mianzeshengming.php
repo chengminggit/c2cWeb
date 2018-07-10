@@ -1,6 +1,5 @@
 <?php
     $title = $_GET['title'];
-    $password = $_GET['password'];
     $text = $_GET['text'];
 
 
@@ -18,9 +17,11 @@
         echo("连接成功");
     }
     $conn->query("set names utf8");
-    $sql= "INSERT INTO mianzeshengming (title, password, desc) VALUES ('$title', '$password', '$text')";
-
+    $sql = "select max(id) as id from mianzeshengming";
+    $result = $conn->query($sql);
+    $raw = $result->fetch_assoc();
+    $id = $raw["id"]+1;
+    $sql= "INSERT INTO mianzeshengming VALUES ('$id','$title','$text')";
     $result = $conn->query($sql);
     $conn->close();
-    echo json_encode("1");
 ?>

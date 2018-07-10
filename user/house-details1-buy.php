@@ -234,9 +234,6 @@
 			</div>
 			<div class="bottom clearfloat box-s">
 				<ul id='move'>
-					<li class="clearfloat">
-						<i class="iconfont icon-user"></i>
-						<input type="text" name="" id="tid" value="" placeholder="您的ID" />
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-phone"></i>
@@ -278,7 +275,6 @@
 <script type="text/javascript">
 
     $("#pay").on("click",function(){
-        var tid=$("#tid").val().trim();
         var tidentify=$("#tidentify").val().trim();
         var lid=$("#lid").val().trim();
         var lidentify=$("#lidentify").val().trim();
@@ -299,7 +295,6 @@
                 url:"dboperate/formal_reservation_add.php",
                 async:false,
                 data:{
-                    tid:tid,
                     tidentify:tidentify,
                     lid:lid,
                     lidentify:lidentify,
@@ -308,9 +303,9 @@
                     rent:rent,
                     number:number
                 },
-                dataType:"json",
+                dataType:"text",
                 success:function(msg){
-                    alert("添加预定成功"+msg);
+                    alert("添加预定成功");
                     window.location.href="formal_reservation_add.php";
 
                 },
@@ -324,10 +319,7 @@
 </script>
 
 	<script>
-		var pay = document.getElementById("pay");
-		pay.onclick = function () {
-			alert("提交成功！");
-		}
+
 
 
 	</script>

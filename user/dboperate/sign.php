@@ -1,5 +1,5 @@
 <?php
- 
+
 
     $id = $_GET['id'];
     $password = $_GET['password'];
@@ -26,10 +26,11 @@
         }*/
         if($row["password"]==$password){
             $mes =  "登录成功";
-            setcookie('mycookie',$id);
+            setcookie('logid',$id);
         }
         else{
             $mes =  "密码错误";
+            setcookie('logid',"");
         }
     }
     else{
