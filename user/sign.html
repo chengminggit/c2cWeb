@@ -88,12 +88,12 @@
 						id:id,
 						password:password,
 					},
-					dataType:"text",
+					dataType:"json",
 					success:function(msg){
 						alert(""+msg);
-						s = JSON.parse(msg);
+						//s = JSON.parse(msg);
 						a = "登录成功";
-						if(s == a){
+						if(msg == a){
 							window.location.href="index.html";
 						}
 						else{
@@ -106,15 +106,6 @@
 					}
 				});
 			}
-			$.post('dboperate/sign.php','',function(data){
-				var arr = data;
-				var dataObj = eval("("+arr+")");
-				$.each(dataObj,function(idx,item){
-					//输出
-					alert(item.id+"哈哈"+item.name);
-				})
-			});
-
             var oId = document.getElementById("id");
             document.cookie = oId.value;
         }

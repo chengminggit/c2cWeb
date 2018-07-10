@@ -92,7 +92,7 @@
 	    <!--弹窗内容 end-->
 	</body>
 
-<script type="text/javascript">
+<script type="text/javascript"></script>
 
 
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
@@ -120,11 +120,17 @@
 						phone:phone,
 						password:password
 					},
-					dataType:"text",
+					dataType:"json",
 					success:function(msg){
-						alert("注册成功"+msg);
-						window.location.href="p-center.html";
-
+						var a = "注册成功";
+						if(msg.first == a){
+							alert(msg.first+"您的id是"+msg.m);
+							window.location.href="p-center.html";
+						}
+						else{
+							alert(msg.first);
+							window.location.href="register.php";
+						}
 					},
 					error: function(){
 						alert("服务器连接失败");
