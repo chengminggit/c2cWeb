@@ -72,7 +72,7 @@
     <!-- 内容主体区域 -->
     <div style="padding: 15px;">
         <fieldset class="layui-elem-field">
-            <legend>免责声明</legend>
+            <legend>景点推荐</legend>
             <div class="layui-field-box">
                 <div class="layui-btn-group">
                     <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html" dw-title="新增系统变量">
@@ -87,13 +87,19 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">标题</label>
                         <div class="layui-input-block">
-                        <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" id="title">
+                        <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" id="addtitle">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-inline">
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="addpassword">
                         </div>
                     </div>
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">文本域</label>
                         <div class="layui-input-block">
-                        <textarea name="desc" placeholder="请输入内容" class="layui-textarea" style="height:400px;" id="text"></textarea>
+                        <textarea name="desc" placeholder="请输入内容" class="layui-textarea" style="height:400px;" id="addtext"></textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -107,7 +113,11 @@
         </fieldset>
     </div>
   </div>
-  
+
+    <script type="text/javascript">
+
+    </script>
+
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     欢迎来到c2c旅游者住宿平台
@@ -121,25 +131,27 @@
     var oSubmit = document.getElementById("submit");
 
     oSubmit.onclick = function(){
-        var title = $("#title").val().trim();
-        var text = $("#text").val().trim();
+        var title = $("#addtitle").val().trim();
+        var password = $("#addpassword").val().trim();
+        var text = $("#addtext").val().trim();
 
-        if(title==""||text==""){
-            alert("标题，密码，内容不能为空");
+        if(title==""||password==""||text==""){
+            alert("内容不能为空");
             return false;
         }
         else{
             $.ajax({
                 type:"get",
-                url:"php/mianzeshengming.php",
+                url:"php/addjingdian.php",
                 async:false,
                 data:{
                     title:title,
+                    password:password,
                     text:text
                 },
-                dataType:"text",
+                dataType:"json",
                 success:function(msg){
-                    alert("提交成功");
+                    alert("提交成功"+msg);
                     //window.location.href="p-center.html";
 
                 },
