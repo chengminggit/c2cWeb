@@ -77,7 +77,7 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
             <fieldset class="layui-elem-field">
-                <legend>用户管理 - 用户列表</legend>
+                <legend>平台管理员管理 - 平台管理员列表</legend>
                 <div class="layui-field-box">
                     <form class="layui-form" action="">
                         <div class="layui-form-item" style="text-align:center;">
@@ -102,7 +102,7 @@
                             <i class="layui-icon">&#xe640;</i>删除
                         </button>
                         <button class="layui-btn layui-btn-xs dw-refresh">
-                            <i class="layui-icon">&#x1002;</i>刷新
+                            <i class="layui-icon" href="businessAdmin.html">&#x1002;</i>刷新
                         </button>
                     </div>
                     <hr>
@@ -117,14 +117,14 @@
                         <thead>
                         <tr>
                             <th class="selectAll"><input type="checkbox"></th>
-                            <th>昵称</th>
-                            <th>加入时间</th>
-                            <th>签名</th>
+                            <th>账号ID</th>
+                            <th>密码</th>
+                            <th>状态</th>
                             <th style="text-align:center;">操作</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
+                        <tbody id = "father">
+                        <!--<tr>
                             <td><input type="checkbox" name="id" value="1"></td>
                             <td>贤心</td>
                             <td>2016-11-29</td>
@@ -171,7 +171,7 @@
                                     </button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -188,5 +188,116 @@
 <script type="text/javascript" src="./layui/layui.js"></script>
 <script type="text/javascript" src="./icheck/icheck.js"></script>
 <script type="text/javascript" src="./javascript/dw.js"></script>
+
 </body>
+
+<script>
+    $.ajax({
+        type:"get",
+        url:"php/checkBusinessAdmin.php",
+        async:false,
+        data:{
+
+        },
+        dataType:"json",
+        success:function(msg){
+            //alert(msg.aa.username);
+            var value=1;
+//            for(var i in msg){
+//                alert("数组第"+i+"行"+"ID:"+msg[i].ID+"<br/>");
+//                alert("数组第"+i+"行"+"area:"+msg[i].password+"<br/>");
+//                alert("数组第"+i+"行"+"city:"+msg[i].permission+"<br/>");
+//            }
+
+            var oFather = document.getElementById("father");
+            var oDiv = document.createElement("tbody");
+            console.log(oDiv);
+            //oDiv.className = "list clearfloat fl box-s";
+            for(var i in msg)
+            {
+                var oTr = document.createElement("tr");
+                oDiv.appendChild(oTr);
+
+                var oTd_id = document.createElement("td");
+                oTd_id.innerText = msg[i].ID;
+                oTr.appendChild(oTd_id);
+
+                var oTd_password = document.createElement("td");
+                oTd_password.innerText = msg[i].password;
+                oTr.appendChild(oTd_password);
+
+                var oTd_permission = document.createElement("td");
+                oTd_permission.innerText = msg[i].permission;
+                oTr.appendChild(oTd_permission);
+
+
+                value=value+1;
+            }
+            oFather.appendChild(oDiv);
+
+
+            //oFather.appendChild(oDiv);
+
+            /*s = msg[i].county;
+
+             var oFather = document.getElementById("father");
+             var oDiv = document.createElement("div");
+             console.log(oDiv);
+             oDiv.className = "list clearfloat fl box-s";
+
+             var oA = document.createElement("a");
+             oA.href = "house-details.php";
+             oDiv.appendChild(oA);
+
+             var oTu = document.createElement("div");
+             oTu.className = "tu clearfloat";
+             oA.appendChild(oTu);
+
+             var oSpan  = document.createElement("span");
+             oTu.appendChild(oSpan);
+
+             var oImg = document.createElement("img");
+             oImg.src = "upload/list-tu.jpg";
+             oTu.appendChild(oImg);
+
+             var oRight = document.createElement("div");
+             oRight.className = "right clearfloat";
+             oA.appendChild(oRight);
+
+             var oTit = document.createElement("div");
+             oTit.className = "tit clear float";
+             oRight.appendChild(oTit);
+
+             var oP = document.createElement("p");
+             oP.className = "fl";
+             oP.innerText = "华府骏苑";
+             oTit.appendChild(oP);
+
+             var oSpan1 = document.createElement("span");
+             oSpan1.className = "fr";
+             oSpan1.innerHTML = msg.v1.rent + "<samp>元/月</samp>";
+             oTit.appendChild(oSpan1);
+
+             var oPrecom = document.createElement("p");
+             oPrecom.className = "recom-jianjie";
+             oPrecom.innerHTML = "三室一厅一卫   |  " + msg.v1.area + "m²  |  普装";
+             oRight.appendChild(oPrecom);
+
+             var oPcity = document.createElement("p");
+             oPcity.className = "recom-jianjie";
+             oPcity.innerHTML = msg.v1.city + " " + msg.v1.county;
+             oRight.appendChild(oPcity);
+
+             var oRe = document.createElement("div");
+             oRe.className = "recom-bottom clearfloat";
+             oRight.appendChild(oPcity);
+
+             oFather.appendChild(oDiv);*/
+        },
+        error: function(){
+            alert("服务器连接失败");
+            return false;
+        }});
+</script>
+
 </html>
