@@ -210,13 +210,22 @@
 //            }
 
             var oFather = document.getElementById("father");
-            var oDiv = document.createElement("tbody");
-            console.log(oDiv);
+            //var oDiv = document.createElement("tbody");
+            //console.log(oDiv);
             //oDiv.className = "list clearfloat fl box-s";
             for(var i in msg)
             {
                 var oTr = document.createElement("tr");
-                oDiv.appendChild(oTr);
+                oFather.appendChild(oTr);
+
+                var oTd_check = document.createElement("td");
+                oTr.appendChild(oTd_check);
+
+                var oInput = document.createElement("input");
+                oInput.type = "checkbox";
+                oInput.name = "id";
+                oInput.value = "'" + (i+1) + "'";
+                oTd_check.appendChild(oInput);
 
                 var oTd_id = document.createElement("td");
                 oTd_id.innerText = msg[i].ID;
@@ -230,10 +239,47 @@
                 oTd_permission.innerText = msg[i].permission;
                 oTr.appendChild(oTd_permission);
 
+                var oTd_center = document.createElement("td");
+                oTd_center.className = "text-center";
+                oTr.appendChild(oTd_center);
 
-                value=value+1;
+                var oDiv_btn = document.createElement("div");
+                oDiv_btn.className = "layui-btn-group"
+                oTd_center.appendChild(oDiv_btn);
+
+                var oButton_bianji = document.createElement("button");
+                oButton_bianji.className = "layui-btn layui-btn-xs layui-btn-normal dw-dailog";
+                //oButton_bianji.dw-url= "create.html?id=1";
+                //oButton_bianji.dw-title= "编辑用户";
+                oDiv_btn.appendChild(oButton_bianji);
+
+                var oI_bianji = document.createElement("i");
+                oI_bianji.className = "layui-btn";
+                oI_bianji.innerText = "&#xe642;";
+                oButton_bianji.appendChild(oI_bianji);
+
+                oButton_bianji.innerText = "编辑";
+                oDiv_btn.appendChild(oButton_bianji);
+
+                var oButton_shanchu = document.createElement("button");
+                oButton_shanchu.className = "layui-btn layui-btn-xs layui-btn-danger dw-delete";
+                //oButton_bianji.dw-url= "create.html?id=1";
+                //oButton_bianji.dw-title= "编辑用户";
+                oDiv_btn.appendChild(oButton_shanchu);
+
+                var oI_shanchu = document.createElement("i");
+                oI_shanchu.className = "layui-btn";
+                oI_shanchu.innerText = "&#xe640;";
+                oButton_shanchu.appendChild(oI_shanchu);
+
+                oButton_shanchu.innerText = "删除";
+                oDiv_btn.appendChild(oButton_shanchu);
+
+
+
+                //value=value+1;
             }
-            oFather.appendChild(oDiv);
+           // oFather.appendChild(oDiv);
 
 
             //oFather.appendChild(oDiv);
