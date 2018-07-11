@@ -317,15 +317,6 @@
 	})
 	</script>
 
-	<script>
-		var oLijiyuyue = document.getElementById("lijiyuyue");
-		oLijiyuyue.onclick = function () {
-			alert("提交成功！");
-		}
-
-
-	</script>
-
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script type="text/javascript" src="slick/slick.min.js" ></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
