@@ -46,12 +46,12 @@
                 <dd><a href="jingdiantuijian.php">景点推荐</a></dd>
             </dl>
         </li>
-        <li class="layui-nav-item layui-nav-itemed">
-          <a href="javascript:;">租户管理</a>
-          <dl class="layui-nav-child">
-            <dd><a class="layui-this" href="admin.html">租户列表</a></dd>
-          </dl>
-        </li>
+          <li class="layui-nav-item">
+              <a href="javascript:;">用户管理</a>
+              <dl class="layui-nav-child">
+                  <dd><a href="member.html">用户列表</a></dd>
+              </dl>
+          </li>
         <li class="layui-nav-item">
             <a href="javascript:;">权限管理</a>
             <dl class="layui-nav-child">
@@ -60,12 +60,7 @@
                 <dd><a href="adminRole.html">用户角色</a></dd>
             </dl>
         </li>
-        <li class="layui-nav-item">
-                <a href="javascript:;">出租者管理</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="member.html">出租者列表</a></dd>
-                </dl>
-            </li>
+
           <li class="layui-nav-item">
               <a href="javascript:;">平台管理员管理</a>
               <dl class="layui-nav-child">
@@ -120,62 +115,67 @@
                   <thead>
                       <tr>
                       <th class="selectAll"><input type="checkbox"></th>
+                      <th>账号id</th>
+                      <th>姓名</th>
                       <th>昵称</th>
-                      <th>加入时间</th>
-                      <th>签名</th>
+                      <th>电话</th>
+                      <th>地址</th>
+                      <th>电话</th>
+                      <th>信用</th>
+                      <th>状态</th>
                       <th style="text-align:center;">操作</th>
                       </tr> 
                   </thead>
-                  <tbody>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="1"></td>
-                      <td>贤心</td>
-                      <td>2016-11-29</td>
-                      <td>人生就像是一场修行</td>
-                      <td class="text-center">
-                        <div class="layui-btn-group">
-                          <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                            <i class="layui-icon">&#xe642;</i>编辑
-                          </button>
-                          <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                            <i class="layui-icon">&#xe640;</i>删除
-                          </button>
-                        </div>
-                      </td>
-                      </tr>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="2"></td>
-                      <td>许闲心</td>
-                      <td>2016-11-28</td>
-                      <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                      <td class="text-center">
-                          <div class="layui-btn-group">
-                              <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                                <i class="layui-icon">&#xe642;</i>编辑
-                              </button>
-                              <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                                <i class="layui-icon">&#xe640;</i>删除
-                              </button>
-                            </div>
-                      </td>
-                      </tr>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="3 "></td>
-                      <td>sentsin</td>
-                      <td>2016-11-27</td>
-                      <td> Life is either a daring adventure or nothing.</td>
-                      <td class="text-center">
-                          <div class="layui-btn-group">
-                              <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                                <i class="layui-icon">&#xe642;</i>编辑
-                              </button>
-                              <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                                <i class="layui-icon">&#xe640;</i>删除
-                              </button>
-                            </div>
-                      </td>
-                      </tr>
-                  </tbody>
+                  <tbody id = "father">
+                      <!--<tr>-->
+                      <!--<td><input type="checkbox" name="id" value="1"></td>-->
+                      <!--<td>贤心</td>-->
+                      <!--<td>2016-11-29</td>-->
+                      <!--<td>人生就像是一场修行</td>-->
+                      <!--<td class="text-center">-->
+                        <!--<div class="layui-btn-group">-->
+                          <!--<button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">-->
+                            <!--<i class="layui-icon">&#xe642;</i>编辑-->
+                          <!--</button>-->
+                          <!--<button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">-->
+                            <!--<i class="layui-icon">&#xe640;</i>删除-->
+                          <!--</button>-->
+                        <!--</div>-->
+                      <!--</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                      <!--<td><input type="checkbox" name="id" value="2"></td>-->
+                      <!--<td>许闲心</td>-->
+                      <!--<td>2016-11-28</td>-->
+                      <!--<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>-->
+                      <!--<td class="text-center">-->
+                          <!--<div class="layui-btn-group">-->
+                              <!--<button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">-->
+                                <!--<i class="layui-icon">&#xe642;</i>编辑-->
+                              <!--</button>-->
+                              <!--<button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">-->
+                                <!--<i class="layui-icon">&#xe640;</i>删除-->
+                              <!--</button>-->
+                            <!--</div>-->
+                      <!--</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                      <!--<td><input type="checkbox" name="id" value="3 "></td>-->
+                      <!--<td>sentsin</td>-->
+                      <!--<td>2016-11-27</td>-->
+                      <!--<td> Life is either a daring adventure or nothing.</td>-->
+                      <!--<td class="text-center">-->
+                          <!--<div class="layui-btn-group">-->
+                              <!--<button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">-->
+                                <!--<i class="layui-icon">&#xe642;</i>编辑-->
+                              <!--</button>-->
+                              <!--<button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">-->
+                                <!--<i class="layui-icon">&#xe640;</i>删除-->
+                              <!--</button>-->
+                            <!--</div>-->
+                      <!--</td>-->
+                      <!--</tr>-->
+                  <!--</tbody>-->
               </table>
             </div>
         </fieldset>
@@ -192,4 +192,116 @@
 <script type="text/javascript" src="./icheck/icheck.js"></script>
 <script type="text/javascript" src="./javascript/dw.js"></script>
 </body>
+
+<script>
+    $.ajax({
+        type:"get",
+        url:"php/checkUser.php",
+        async:false,
+        data:{
+
+        },
+        dataType:"json",
+        success:function(msg){
+            //alert(msg.aa.username);
+            var value=1;
+//            for(var i in msg){
+//                alert("数组第"+i+"行"+"ID:"+msg[i].ID+"<br/>");
+//                alert("数组第"+i+"行"+"area:"+msg[i].password+"<br/>");
+//                alert("数组第"+i+"行"+"city:"+msg[i].permission+"<br/>");
+//            }
+
+            var oFather = document.getElementById("father");
+            //var oDiv = document.createElement("tbody");
+            //console.log(oDiv);
+            //oDiv.className = "list clearfloat fl box-s";
+            for(var i in msg)
+            {
+                var oTr = document.createElement("tr");
+                oFather.appendChild(oTr);
+
+                var oTd_check = document.createElement("td");
+                oTr.appendChild(oTd_check);
+
+                var oInput = document.createElement("input");
+                oInput.type = "checkbox";
+                oInput.name = "id";
+                oInput.value = "'" + (i+1) + "'";
+                oTd_check.appendChild(oInput);
+
+                var oTd_id = document.createElement("td");
+                oTd_id.innerText = msg[i].ID;
+                oTr.appendChild(oTd_id);
+
+                var oTd_name = document.createElement("td");
+                oTd_name.innerText = msg[i].name;
+                oTr.appendChild(oTd_name);
+
+                var oTd_nickname = document.createElement("td");
+                oTd_nickname.innerText = msg[i].nickname;
+                oTr.appendChild(oTd_nickname);
+
+                var oTd_telephone = document.createElement("td");
+                oTd_telephone.innerText = msg[i].telephone;
+                oTr.appendChild(oTd_telephone);
+
+                var oTd_address = document.createElement("td");
+                oTd_address.innerText = msg[i].address;
+                oTr.appendChild(oTd_address);
+
+                var oTd_credit = document.createElement("td");
+                oTd_credit.innerText = msg[i].credit;
+                oTr.appendChild(oTd_credit);
+
+                var oTd_permission = document.createElement("td");
+                oTd_permission.innerText = msg[i].permission;
+                oTr.appendChild(oTd_permission);
+
+                var oTd_center = document.createElement("td");
+                oTd_center.className = "text-center";
+                oTr.appendChild(oTd_center);
+
+                var oDiv_btn = document.createElement("div");
+                oDiv_btn.className = "layui-btn-group"
+                oTd_center.appendChild(oDiv_btn);
+
+                var oButton_bianji = document.createElement("button");
+                oButton_bianji.className = "layui-btn layui-btn-xs layui-btn-normal dw-dailog";
+                //oButton_bianji.dw-url= "create.html?id=1";
+                //oButton_bianji.dw-title= "编辑用户";
+                oDiv_btn.appendChild(oButton_bianji);
+
+                var oI_bianji = document.createElement("i");
+                oI_bianji.className = "layui-btn";
+                oI_bianji.innerText = "&#xe642;";
+                oButton_bianji.appendChild(oI_bianji);
+
+                oButton_bianji.innerText = "编辑";
+                oDiv_btn.appendChild(oButton_bianji);
+
+                var oButton_shanchu = document.createElement("button");
+                oButton_shanchu.className = "layui-btn layui-btn-xs layui-btn-danger dw-delete";
+
+                oDiv_btn.appendChild(oButton_shanchu);
+
+                var oI_shanchu = document.createElement("i");
+                oI_shanchu.className = "layui-btn";
+                oI_shanchu.innerText = "&#xe640;";
+                oButton_shanchu.appendChild(oI_shanchu);
+
+                oButton_shanchu.innerText = "删除";
+                oDiv_btn.appendChild(oButton_shanchu);
+
+
+
+                //value=value+1;
+            }
+        },
+        error: function(){
+            alert("服务器连接失败");
+            return false;
+        }});
+</script>
+
+
 </html>

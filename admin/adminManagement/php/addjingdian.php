@@ -8,7 +8,7 @@
 
     $title = $_GET['title'];
     $text = $_GET['text'];
-    $password = $_GET['password'];
+//    $password = $_GET['password'];
 
 
     // 创建连接
