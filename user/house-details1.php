@@ -273,6 +273,7 @@
 
 				</ul>
 				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
+				<input type="button" name="" id="save" value="保存" class="btn" />
 			</div>
 		</div>
 	    <!--弹窗内容 end-->
@@ -300,7 +301,8 @@
 				data:{
 					name:name,
 					phone:phone,
-					time:time
+					time:time,
+					state:1
 				},
 				dataType:"text",
 				success:function(msg){
@@ -317,13 +319,42 @@
 	})
 	</script>
 
-	<script>
-		var oLijiyuyue = document.getElementById("lijiyuyue");
-		oLijiyuyue.onclick = function () {
-			alert("提交成功！");
-		}
+	<script type="text/javascript">
+
+		$("#save").on("click",function(){
+			var name=$("#addname").val().trim();
+			var phone=$("#addphone").val().trim();
+			var time=$("#addtime").val().trim();
 
 
+			if(name==""||phone==""||time==""){
+				alert("姓名，手机号，时间不能为空");
+				return false;
+			}
+			else{
+				$.ajax({
+					type:"get",
+					url:"dboperate/reservation-add.php",
+					async:false,
+					data:{
+						name:name,
+						phone:phone,
+						time:time,
+						state:0
+					},
+					dataType:"text",
+					success:function(msg){
+						alert("保存成功"+msg);
+						window.location.href="house-details1.php";
+
+					},
+					error: function(){
+						alert("服务器连接失败");
+						return false;
+					}
+				});
+			}
+		})
 	</script>
 
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
