@@ -244,7 +244,18 @@
 					</li>
 					<li class="clearfloat">
 						<i class="iconfont icon-calendar"></i>
-						<input type="text" name="" id="addtime" value="" placeholder="请选择看房时间" />
+						<input type="text" name="" id="addtime"onClick="calendar.show({ id: this });
+                                                                         var oCalendar = document.getElementById('_calendar');
+
+                                                                                 oCalendar.style.position = 'fixed';
+                                                                                 oCalendar.style.zIndex = 9999999;
+                                                                         var oCalyear = document.getElementById('_calyear');
+                                                                         oCalyear.style.width = 42 + 'px';
+                                                                         oCalyear.style.height = 6 + 'px';
+                                                                         var oCalmod = document.getElementById('_calmod');
+                                                                                   oCalmod.style.width = 42 + 'px';
+                                                                                   oCalmod.style.height = 6 + 'px';
+                                                                         " value="" placeholder="请选择看房时间" />
 					</li>
 				</ul>
 				<input type="button" name="" id="lijiyuyue" value="立即预约" class="btn" />
