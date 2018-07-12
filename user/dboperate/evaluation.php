@@ -8,7 +8,7 @@
 $star = $_GET['num'];
 $content = $_GET['evaluation'];
 $tid = $_COOKIE["logid"];
-$hid = 1001;
+$rid = 10005;
 
 //$servername = "localhost";
 //$username = "test";
@@ -25,19 +25,22 @@ $sql = "select max(id) as id from evaluation";
 $result = $conn->query($sql);
 $raw = $result->fetch_assoc();
 $id = $raw["id"]+1;
-$sql = "insert into evaluation VALUES ('$id','$tid','$hid','$star','$content')";
-$result = $conn->query($sql);
-$sql = "select distinct lessorID from house where house.ID = '$hid'";
+
+$sql = "select distinct lessorID from Reservation where Reservation.ID = '$rid'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $lid = $row["lessorID"];
-$sql = "select star from evaluation,house where house.ID = '$hid' and evaluation.houseid = house.ID";
+
+$sql = "insert into evaluation VALUES ('$id','$rid','$lid','$tid','$star','$content')";
+$result = $conn->query($sql);
+
+$sql = "select star from evaluation,Reservation where Reservation.ID = '$rid' and evaluation.reservationid = Reservation.ID";
 $result = mysqli_query($conn, $sql);
 $num = $result->num_rows;
 $newcredit = 0;
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-      $newcredit =$newcredit+$row["star"];
+        $newcredit =$newcredit+$row["star"];
     };
 }
 $newcredit = (int)($newcredit/$num);
