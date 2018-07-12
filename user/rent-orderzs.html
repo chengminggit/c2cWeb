@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>租房订单</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <script src="js/rem.js"></script> 
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/page.css"/>
-    <link rel="stylesheet" type="text/css" href="css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>租房订单</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<script src="js/rem.js"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="css/page.css"/>
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/loading.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<style>
+		.submit,.modify,.delete{
+			display: block;
+			float: right;
+			width:60px;
+			height:40px;
+			line-height: 40px;
+			font-size: 18px;
+			text-align: center;
+			background-color: transparent;
+			border-radius: 10px;
+		}
+		.submit{
+			color:#f00;
+		}
+		.modify{
+			color:green;
+		}
+		.delete{
+			color:blue;
+		}
+	</style>
 	<script type="text/javascript">
 		$(window).load(function(){
 			$(".loading").addClass("loader-chanage")
@@ -25,172 +47,354 @@
 <!--loading页开始-->
 <div class="loading">
 	<div class="loader">
-        <div class="loader-inner pacman">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+		<div class="loader-inner pacman">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 	</div>
 </div>
 <!--loading页结束-->
-	<body>
-		<div class="headertwo clearfloat" id="header">
-			<a href="javascript:history.go(-1)" class="fl box-s"><i class="iconfont icon-arrow-l fl"></i></a>
-			<p class="fl">租房订单</p>
-		</div>
-		
-		<div class="rent clearfloat" id="main">
-			<div class="top clearfloat">
-				<ul id="my-ul">
-					<li>
-						<a href="rent-order.html">预订单</a>
-					</li>
-					<li class="cur">
-						<a href="rent-orderzs.html">正式订单</a>
-					</li>
-					<li>
-						<a href="empty-list.html">待评价</a>
-					</li>
-					<li>
-						<a href="finish-list.html">已完成</a>
-					</li>
-				</ul>
-			</div>
-			
-			<div class="schedule clearfloat collection">
-				<div class="content clearfloat box-s">
-					<div class="topsche-top box-s clearfloat">
-						<p class="fl add">
-							看房时间：2016-04-30
-						</p>
-						<p class="tit fr">
-							待支付
-						</p>
-					</div>
-		    		<div class="list clearfloat fl box-s">
-		    			<a href="house-details.php">
-			    			<div class="tu clearfloat">
-			    				<span></span>
-			    				<img src="upload/list-tu.jpg"/>
-			    			</div>
-			    			<div class="right clearfloat" style="position:relative;">
-			    				<div class="tit clearfloat">
-			    					<p class="fl">华府骏苑</p>
-			    				</div>
-			    				<p class="recom-jianjie">三室一厅一卫   |  125m²  |  普装</p>
-			    				<div class="recom-bottom clearfloat">
-			    					2500<samp>元/月</samp>
-			    				</div>
-								<a href="house-details1.php" class="see" style="position: absolute;top:15px;right:0;color:#f90;font-size:18px;">预约看房</a>
-								<a href="house-details1-buy.php" class="dinggou" style="position: absolute;;top:50px;right:0;color:#f90;font-size:18px;">我要下单</a>
-			    			</div>
-		    			</a>
-		    		</div>
-		    		<div class="topsche-top entrust box-s clearfloat">
-						<a href="pay-rent.html" class="tit fr entrust-btn">
-							付款
-						</a>
-						<a href="#" class="tit fr entrust-btn rent-btn">
-							取消订单
-						</a>
-					</div>
-		    	</div>
+<body>
+<div class="headertwo clearfloat" id="header">
+	<a href="javascript:history.go(-1)" class="fl box-s"><i class="iconfont icon-arrow-l fl"></i></a>
+	<p class="fl">租房订单</p>
+</div>
 
-		    	<div class="content clearfloat box-s">
-					<div class="topsche-top box-s clearfloat">
-						<p class="fl add">
-							看房时间：2016-04-30
-						</p>
-						<p class="tit fr">
-							待评价
-						</p>
-					</div>
-		    		<div class="list clearfloat fl box-s">
-		    			<a href="house-details.php">
-			    			<div class="tu clearfloat">
-			    				<span></span>
-			    				<img src="upload/list-tu.jpg"/>
-			    			</div>
-			    			<div class="right clearfloat">
-			    				<div class="tit clearfloat">
-			    					<p class="fl">华府骏苑</p>
-			    				</div>
-			    				<p class="recom-jianjie">三室一厅一卫   |  125m²  |  普装</p>
-			    				<div class="recom-bottom clearfloat">
-			    					2500<samp>元/月</samp>
-			    				</div>
-			    			</div>
-		    			</a>
-		    		</div>
-		    		<div class="topsche-top entrust box-s clearfloat">
-						<a href="assess.html" class="tit fr entrust-btn">
-							待评价
-						</a>
-						<a href="#" class="tit fr entrust-btn rent-btn">
-							取消订单
-						</a>
-					</div>
-		    	</div>
-		    	
-		    	<div class="content clearfloat box-s">
-					<div class="topsche-top box-s clearfloat">
-						<p class="fl add">
-							看房时间：2016-04-30
-						</p>
-						<p class="tit titwo fr">
-							已完成
-						</p>
-					</div>
-		    		<div class="list clearfloat fl box-s">
-		    			<a href="house-details.php">
-			    			<div class="tu clearfloat">
-			    				<span></span>
-			    				<img src="upload/list-tu.jpg"/>
-			    			</div>
-			    			<div class="right clearfloat">
-			    				<div class="tit clearfloat">
-			    					<p class="fl">华府骏苑</p>
-			    				</div>
-			    				<p class="recom-jianjie">三室一厅一卫   |  125m²  |  普装</p>
-			    				<div class="recom-bottom clearfloat">
-			    					2500<samp>元/月</samp>
-			    				</div>
-			    			</div>
-		    			</a>
-		    		</div>
-		    		<div class="topsche-top entrust box-s clearfloat">
-						<a href="#" class="tit fr entrust-btn rent-btn">
-							取消订单
-						</a>
-					</div>
-		    	</div>
-		    	
-		    	
-			</div>
-			
-		</div>
-	</body>
-	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
-	<script type="text/javascript" src="slick/slick.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-	<script type="text/javascript" src="js/tchuang.js" ></script>
-	<script type="text/javascript" src="js/hmt.js" ></script>
+<div class="rent clearfloat" id="main">
+	<div class="top clearfloat">
+		<ul id="my-ul">
+			<li>
+				<a href="rent-order.html">预订单</a>
+			</li>
+			<li class="cur">
+				<a href="rent-orderzs.html">正式订单</a>
+			</li>
+			<li>
+				<a href="empty-list.html">待评价</a>
+			</li>
+			<li>
+				<a href="finish-list.html">被拒绝</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="schedule clearfloat collection" id="dad">
+		<!--<div class="content clearfloat box-s">
+           <div class="topsche-top box-s clearfloat">
+              <p class="fl add">
+                 订单ID：10001
+              </p>
+              <p class="tit fr">
+                 已保存
+              </p>
+           </div>
+            <div class="list clearfloat fl box-s">
+               <a href="house-details.php">
+                  <div class="tu clearfloat">
+                     <span></span>
+                     <img src="upload/list-tu.jpg"/>
+                  </div>
+                  <div class="right clearfloat" style="position:relative;">
+                     <div class="tit clearfloat">
+                        <p class="fl">房源ID：1001</p>
+                     </div>
+                     <p class="recom-jianjie">租期：3 个月</p>
+                     <div class="recom-bottom clearfloat">
+                        2500<samp>元/月</samp>
+                     </div>
+                    <p class="recom-jianjie">租住人数： 1 人</p>
+                  </div>
+               </a>
+            </div>
+            <div class="topsche-top entrust box-s clearfloat">
+              <a href="" class="tit fr entrust-btn">
+                 提交
+              </a>
+              <a href="" class="tit fr entrust-btn rent-btn">
+                 修改
+              </a>
+              <a href="" class="tit fr entrust-btn rent-btn">
+                 删除
+              </a>
+           </div>
+         </div>
+
+        <div class="content clearfloat box-s">
+           <div class="topsche-top box-s clearfloat">
+              <p class="fl add">
+                 订单ID：10002
+              </p>
+              <p class="tit fr">
+                 已提交，等待户主处理
+              </p>
+           </div>
+           <div class="list clearfloat fl box-s">
+              <a href="house-details.php">
+                 <div class="tu clearfloat">
+                    <span></span>
+                    <img src="upload/list-tu.jpg"/>
+                 </div>
+                 <div class="right clearfloat" style="position:relative;">
+                    <div class="tit clearfloat">
+                       <p class="fl">房源ID：1002</p>
+                    </div>
+                    <p class="recom-jianjie">租期：1 个月</p>
+                    <div class="recom-bottom clearfloat">
+                       2500<samp>元/月</samp>
+                    </div>
+                    <p class="recom-jianjie">租住人数： 2 人</p>
+                 </div>
+              </a>
+           </div>
+        </div>-->
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
+<script type="text/javascript" src="slick/slick.min.js" ></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="js/tchuang.js" ></script>
+<script type="text/javascript" src="js/hmt.js" ></script>
 
 <script>
 	var oMyul = document.getElementById("my-ul"),
-		oLi = oMyul.getElementsByTagName("li");
+			oLi = oMyul.getElementsByTagName("li");
 
 	for(var i = 0; i<oLi.length; i++){
-	    oLi[i].onclick = function () {
-            for(var j = 0; j < oLi.length; j++){
-                oLi[j].className = "";
-            }
+		oLi[i].onclick = function () {
+			for(var j = 0; j < oLi.length; j++){
+				oLi[j].className = "";
+			}
 			this.className = "cur";
 			console.log(this.className);
-        }
+		}
 	}
 </script>
+
+<script>
+	$.ajax({
+		type:"get",
+		url:"dboperate/tenantCheckReservation.php",
+		async:false,
+		data:{
+
+		},
+		dataType:"json",
+		success:function(msg){
+			var oFather = document.getElementById("dad");
+
+			for(var i in msg){
+				var oBigDiv = document.createElement("div");
+				oBigDiv.className = "content clearfloat box-s son";
+
+				var oDiv1 = document.createElement("div");
+				//console.log(oDiv);
+				oDiv1.className = "topsche-top box-s clearfloat ";
+
+				oBigDiv.appendChild(oDiv1);
+
+				var oAyuyue0 = document.createElement("p");
+				oAyuyue0.className = "fl add";
+				oAyuyue0.innerHTML = "订单ID：";
+				oDiv1.appendChild(oAyuyue0);
+
+				var oAyuyue = document.createElement("p");
+				oAyuyue.className = "fl add";
+				oAyuyue.innerHTML = msg[i].ID;
+				oDiv1.appendChild(oAyuyue);
+
+				var oAxiadan = document.createElement("p");
+				oAxiadan.className = "tit fr";
+				if(msg[i].type=="1")
+				{
+					oAxiadan.innerHTML = "已保存";
+				}
+				else{
+					oAxiadan.innerHTML = "已提交，等待户主处理";
+				}
+
+				oDiv1.appendChild(oAxiadan);
+
+
+				var oDiv2 = document.createElement("div");
+				oDiv2.className = "list clearfloat fl box-s";
+
+				var oA = document.createElement("a");
+				//oA.href = "house-details.php";
+				oDiv2.appendChild(oA);
+
+				oBigDiv.appendChild(oDiv2);
+
+				var oSmallDiv1 = document.createElement("div");
+				oSmallDiv1.className = "tu clearfloat";
+				oA.appendChild(oSmallDiv1);
+
+				var oS = document.createElement("span");
+				oSmallDiv1.appendChild(oS);
+
+				var oImg = document.createElement("img");
+				oImg.src="upload/list-tu.jpg";
+				oSmallDiv1.appendChild(oImg);
+
+				var oSmallDiv2 = document.createElement("div");
+				oSmallDiv2.className="right clearfloat";
+				oSmallDiv2.style="position:relative";
+				oA.appendChild(oSmallDiv2);
+
+				var olittleDiv1 = document.createElement("div");
+				olittleDiv1.className="tit clearfloat";
+				oSmallDiv2.appendChild(olittleDiv1);
+
+				var op = document.createElement("p");
+				op.className="f1";
+				op.innerText="房源ID："+msg[i].houseID;
+				olittleDiv1.appendChild(op);
+
+				var op1=document.createElement("p");
+				op1.className="recom-jianjie";
+				op1.innerText="租期："+msg[i].rentTime+" 个月";
+				oSmallDiv2.appendChild(op1);
+
+				var olittleDiv2 = document.createElement("div");
+				olittleDiv2.className="recom-bottom clearfloat";
+				olittleDiv2.innerText="1000";
+				oSmallDiv2.appendChild(olittleDiv2);
+
+				var oSamp = document.createElement("samp");
+				oSamp.innerText=" 元/月";
+				olittleDiv2.appendChild(oSamp);
+
+				var op2=document.createElement("p");
+				op2.className="recom-bottom clearfloat";
+				op2.innerText="租住人数："+msg[i].number+" 人";
+				oSmallDiv2.appendChild(op2);
+
+				var op3=document.createElement("p");
+				op3.className="recom-bottom clearfloat";
+				op3.innerText="入住日期："+msg[i].startDate;
+				oSmallDiv2.appendChild(op3);
+
+				var oDiv3 = document.createElement("div");
+				oDiv3.className = "topsche-top entrust box-s clearfloat";
+				oBigDiv.appendChild(oDiv3);
+
+				if(msg[i].type==1)
+				{
+					var oA1= document.createElement("a");
+					oA1.className="submit";
+					oA1.innerText="提交";
+					oDiv3.appendChild(oA1);
+
+					var oA2= document.createElement("a");
+					oA2.className="modify";
+					oA2.innerText="修改";
+					oDiv3.appendChild(oA2);
+
+					var oA3= document.createElement("a");
+					oA3.className="delete";
+					oA3.innerText="删除";
+					oDiv3.appendChild(oA3);
+				}
+				oFather.appendChild(oBigDiv);
+			}
+		},
+
+		error: function(){
+			alert("服务器连接失败");
+			return false;
+		}});
+</script>
+
+<script>
+	var oFather = document.getElementById("dad");
+	var oSon = oFather.getElementsByTagName("div");
+	var oGrandSon=oSon.getElementsByTagName("div");
+	var oP = oGrandSon[0].getElementsByTagName("P");
+	var oDelete = document.getElementsByClassName("delete");
+	console.log(oDelete);
+	for(var i=0; i<oDelete.length; i++){
+		oDelete[i].index = i;
+		oDelete[i].onclick = function () {
+			var index = this.index;
+			console.log(index);
+			//oSon[index].style.display = "none";
+
+			var oSonTd = oSon[index].getElementsByTagName("td");
+
+			var id = oSonTd[1].innerHTML;
+			alert(id);
+
+			$.ajax({
+				type:"get",
+				url:"php/deleteBusinessAdmin.php",
+				async:false,
+				data:{
+					id:id,
+				},
+				dataType:"json",
+				success:function(data){
+					alert(data);
+					window.location.href="businessAdmin.html";
+
+				},
+				error: function(){
+					alert("服务器连接失败");
+					return false;
+				}
+			});
+		}
+	}
+</script>
+
+<script>
+	var oFather = document.getElementById("dad");
+	var oSon = oFather.getElementsByClassName("son");//bigdiv组
+	var oChange = document.getElementsByClassName("submit");
+	console.log(oChange);
+	for(var i=0; i<oChange.length; i++){
+		oChange[i].index = i;
+//    console.log("我的长度",oChange.length);
+		oChange[i].onclick = function () {
+			var index = this.index;
+			console.log(index);
+			//oSon[index].style.display = "none";
+
+
+			console.log(oSon[index]);
+			var oGrandSon=oSon[index].getElementsByTagName("div");//bigdiv下的div组
+			//console.log(oGrandSon);
+			var oP = oGrandSon[0].getElementsByTagName("P");//bigdiv下的div组【0】下的p组
+
+			console.log(oP);
+
+			var id = oP[1].innerText;
+			alert(id);
+
+			$.ajax({
+				type:"get",
+				url:"dboperate/tenantChangeReservation.php",
+				async:false,
+				data:{
+					id:id,
+				},
+				dataType:"json",
+				success:function(data){
+					alert(data);
+					window.location.href="rent-orderzs.html";
+
+				},
+				error: function(){
+					alert("服务器连接失败");
+					return false;
+				}
+			});
+		}
+	}
+</script>
+
+
 </html>

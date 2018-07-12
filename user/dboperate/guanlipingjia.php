@@ -7,7 +7,7 @@
  */
 $star = $_GET['num'];
 $content = $_GET['evaluation'];
-$tid = $_COOKIE["logid"];
+$lid = $_COOKIE["logid"];
 $rid = 10005;
 
 //$servername = "localhost";
@@ -21,20 +21,20 @@ if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
 $conn->query("set names utf8");
-$sql = "select max(id) as id from evaluation";
+$sql = "select max(id) as id from evaluation2";
 $result = $conn->query($sql);
 $raw = $result->fetch_assoc();
 $id = $raw["id"]+1;
 
-$sql = "select distinct lessorID from Reservation where Reservation.ID = '$rid'";
+$sql = "select distinct tenantid from Reservation where Reservation.ID = '$rid'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$lid = $row["lessorID"];
+$tid = $row["tenantid"];
 
-$sql = "insert into evaluation VALUES ('$id','$rid','$tid','$lid','$star','$content')";
+$sql = "insert into evaluation2 VALUES ('$id','$rid','$lid','$tid','$content','$star')";
 $result = $conn->query($sql);
 
-$sql = "select star from evaluation,Reservation where Reservation.ID = '$rid' and evaluation.reservationid = Reservation.ID";
+$sql = "select star from evaluation2,Reservation where Reservation.ID = '$rid' and evaluation2.reservationid = Reservation.ID";
 $result = mysqli_query($conn, $sql);
 $num = $result->num_rows;
 $newcredit = 0;
@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
     };
 }
 $newcredit = (int)($newcredit/$num);
-$sql = "update user set credit='$newcredit' where id= '$lid'";
+$sql = "update user set credit='$newcredit' where id= '$tid'";
 $result = $conn->query($sql);
 $mes = "评价成功";
 $mes = urlencode($mes);
