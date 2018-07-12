@@ -213,6 +213,8 @@
             //var oDiv = document.createElement("tbody");
             //console.log(oDiv);
             //oDiv.className = "list clearfloat fl box-s";
+
+
             for(var i in msg)
             {
                 var oTr = document.createElement("tr");
@@ -279,6 +281,52 @@
 
                 //value=value+1;
             }
+
+            var oModify = document.getElementsByClassName("dw-dailog");
+            for(var i=0; i<oModify.length; i++){
+                oModify[i].index = i;
+                oModify[i].onclick = function () {
+                    var index = this.index;
+                    console.log(index-1);
+
+                    var oFather = document.getElementById("father");
+                    var oSonTr = oFather.getElementsByTagName("tr");
+                    var oSonTd = oSonTr[index-1].getElementsByTagName("td");
+                    oSonTd[2].contentEditable = "true";
+                    // oSon[index].style.display = "none";
+                    // var oMyDiv = document.createElement("div");
+                    // oMyDiv.style.position = "absolute";
+                    // oMyDiv.style.top = "30px";
+                    // oMyDiv.style.left = "400px";
+                    // oMyDiv.style.width = "400px";
+                    // oMyDiv.style.height = "400px";
+                    // oMyDiv.style.backgroundColor = "#f00";
+                    // oMyDiv.style.zIndex = "999";
+
+                    //oSon[index].appendChild(oMyDiv);
+
+
+
+                    // for(var i in msg){
+                    //     var oTd_id = document.createElement("td");
+                    //     oTd_id.innerText = msg[i].ID;
+                    //     oMyDiv.appendChild(oTd_id);
+                    //
+                    //     var oTd_password = document.createElement("td");
+                    //     oTd_password.innerText = msg[i].password;
+                    //     oMyDiv.appendChild(oTd_password);
+                    //
+                    //     var oTd_permission = document.createElement("td");
+                    //     oTd_permission.innerText = msg[i].permission;
+                    //     oMyDiv.appendChild(oTd_permission);
+                    // }
+
+
+
+                }
+            }
+
+
            // oFather.appendChild(oDiv);
 
 
@@ -344,6 +392,24 @@
             alert("服务器连接失败");
             return false;
         }});
+</script>
+
+<script>
+    var oFather = document.getElementById("father");
+    var oSon = oFather.getElementsByTagName("tr");
+    var oDelete = document.getElementsByClassName("dw-delete");
+    console.log(oDelete);
+    for(var i=0; i<oDelete.length; i++){
+        oDelete[i].index = i;
+        oDelete[i].onclick = function () {
+            var index = this.index;
+            console.log(index);
+            oSon[index].style.display = "none";
+        }
+    }
+
+
+
 </script>
 
 </html>

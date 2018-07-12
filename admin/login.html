@@ -221,6 +221,8 @@
 						if(msg == a){
 							//var oId = document.getElementById("id");
 							//document.cookie = oId.value;
+							document.cookie = 1;
+							//alert(document.cookie);
 							window.location.href="adminManagement/index.html";
 						}
 						else{
@@ -260,6 +262,8 @@
 						//s = JSON.parse(msg);
 						a = "登录成功";
 						if(msg == a){
+                            document.cookie = 2;
+                            //alert(document.cookie);
 							//var oId = document.getElementById("id");
 							//document.cookie = oId.value;
 							window.location.href="adminManagement/index.html";
@@ -278,6 +282,6 @@
 			//window.location.href = "adminManagement/index.html";
 		}
 
-		
+
 	</script>
 </html>
