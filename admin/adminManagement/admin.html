@@ -192,7 +192,7 @@
 <script type="text/javascript" src="./javascript/jquery.min.js"></script>
 <script type="text/javascript" src="./layui/layui.js"></script>
 <script type="text/javascript" src="./icheck/icheck.js"></script>
-<script type="text/javascript" src="./javascript/dw.js"></script>
+<!--<script type="text/javascript" src="./javascript/dw.js"></script>-->
 </body>
 
 <script>
@@ -294,9 +294,61 @@
                 oButton_shanchu.innerText = "删除";
                 oDiv_btn.appendChild(oButton_shanchu);
 
+                var oButton_change = document.createElement("button");
+                oButton_change.className = "layui-btn  layui-btn-xs dw-refresh";
+
+                oDiv_btn.appendChild(oButton_change);
+
+                var oI_change = document.createElement("i");
+                oI_change.className = "layui-btn";
+                oI_change.innerText = "&#xe640;";
+                oButton_change.appendChild(oI_change);
+
+                oButton_change.innerText = "更改权限";
+                oDiv_btn.appendChild(oButton_change);
 
 
                 //value=value+1;
+            }
+
+            var oModify = document.getElementsByClassName("dw-dailog");
+            for(var i=0; i<oModify.length; i++){
+                oModify[i].index = i;
+                oModify[i].onclick = function () {
+                    var index = this.index;
+                    console.log(index-1);
+
+                    var oFather = document.getElementById("father");
+                    var oSonTr = oFather.getElementsByTagName("tr");
+                    var oSonTd = oSonTr[index-1].getElementsByTagName("td");
+                    oSonTd[2].contentEditable = "true";
+
+
+                    oSonTd[2].onblur = function () {
+                        var new_Password = oSonTd[2].innerText;
+                        var th_ID = oSonTd[1].innerText;
+                        $.ajax({
+                            type:"get",
+                            url:"php/modifyAdmin.php",
+                            async:false,
+                            data:{
+                                id:th_ID,
+                                password:new_Password,
+                            },
+                            dataType:"json",
+                            success:function(data){
+                                alert(data);
+                                window.location.href="admin.html";
+
+                            },
+                            error: function(){
+                                alert("服务器连接失败");
+                                return false;
+                            }
+                        });
+                    }
+
+                }
             }
         },
         error: function(){
@@ -305,5 +357,83 @@
         }});
 </script>
 
+<script>
+    var oFather = document.getElementById("father");
+    var oSon = oFather.getElementsByTagName("tr");
+    var oDelete = document.getElementsByClassName("dw-delete");
+    console.log(oDelete);
+    for(var i=0; i<oDelete.length; i++){
+        oDelete[i].index = i;
+        oDelete[i].onclick = function () {
+            var index = this.index;
+            console.log(index);
+            //oSon[index].style.display = "none";
+
+            var oSonTd = oSon[index].getElementsByTagName("td");
+
+            var id = oSonTd[1].innerText;
+            alert(id);
+
+            $.ajax({
+                type:"get",
+                url:"php/deleteAdmin.php",
+                async:false,
+                data:{
+                    id:id
+                },
+                dataType:"json",
+                success:function(data){
+                    alert(data);
+                    window.location.href="admin.html";
+
+                },
+                error: function(){
+                    alert("服务器连接失败");
+                    console.log("hello");
+                    return false;
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+    var oFather = document.getElementById("father");
+    var oSon = oFather.getElementsByTagName("tr");
+    var oChange = document.getElementsByClassName("dw-refresh");
+    console.log(oChange);
+    for(var i=0; i<oChange.length; i++){
+        oChange[i].index = i;
+        oChange[i].onclick = function () {
+            var index = this.index;
+            console.log(index);
+            //oSon[index].style.display = "none";
+
+            var oSonTd = oSon[index-1].getElementsByTagName("td");
+
+            var id = oSonTd[1].innerText;
+            alert(id);
+
+            $.ajax({
+                type:"get",
+                url:"php/permissionAdmin.php",
+                async:false,
+                data:{
+                    id:id,
+                },
+                dataType:"json",
+                success:function(data){
+                    alert(data);
+                    window.location.href="admin.html";
+
+                },
+                error: function(){
+                    alert("服务器连接失败");
+                    return false;
+                }
+            });
+        }
+    }
+</script>
 
 </html>
