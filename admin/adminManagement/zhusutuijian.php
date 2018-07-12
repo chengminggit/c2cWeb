@@ -76,7 +76,7 @@
     <!-- 内容主体区域 -->
     <div style="padding: 15px;">
         <fieldset class="layui-elem-field">
-            <legend>景点推荐</legend>
+            <legend>住宿推荐</legend>
             <div class="layui-field-box">
                 <div class="layui-btn-group">
                     <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html" dw-title="新增系统变量">
@@ -146,7 +146,7 @@
         else{
             $.ajax({
                 type:"get",
-                url:"php/addjingdian.php",
+                url:"php/addzhusu.php",
                 async:false,
                 data:{
                     title:title,
