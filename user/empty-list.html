@@ -104,11 +104,11 @@
 						<div class="order-list-Below">
 							<h1>租房评价</h1>
 							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
+								<li id="star1"></li>
+								<li id="star2"></li>
+								<li id="star3"></li>
+								<li id="star4"></li>
+								<li id="star5"> </li>
 							</ul>
 							<div class="order-textbox">
 								<textarea placeholder="在此输入对房子评价" id="wodepingjia"></textarea>
@@ -131,6 +131,19 @@
 	<script type="text/javascript" src="js/hmt.js" ></script>
 
 <script type="text/javascript">
+	var oRderList = document.getElementsByClassName("order-list")[0],
+			oPingjia = document.getElementById("pingjia"),
+			oFabiao = document.getElementById("fabiao"),
+			oContent = document.getElementsByClassName("content")[0],
+			oDiv = document.createElement("div"),
+			oWodepingjia = document.getElementById("wodepingjia");
+
+	oRderList.style.display = "none";
+
+	oPingjia.onclick = function () {
+		oRderList.style.display = "block";
+	}
+
     $(".order-list-Below ul li").click(
         function(){
             var num = $(this).index()+1;
@@ -154,11 +167,78 @@
                     $(thats).eq(j).addClass("on");
                 }
             }
-        }
+		}
     );
+	oFabiao.onclick = function () {
+		var oStar1 = document.getElementById("star1");
+		var oStar2 = document.getElementById("star2");
+		var oStar3 = document.getElementById("star3");
+		var oStar4 = document.getElementById("star4");
+		var oStar5 = document.getElementById("star5");
+		var num = 0;
+		if (oStar5.class=="on")
+		{
+			num = 5;
+		}
+		else{
+			if(oStar4.class=="on"){
+				num=4;
+			}
+			else{
+				if(oStar3.class=="on"){
+					num=3;
+				}
+				else{
+					if(oStar3.class=="on"){
+						num = 3;
+					}
+					else{
+						if(oStar2.class=="on"){
+							num = 2;
+						}
+						else{
+							num = 1;
+						}
+					}
+				}
+			}
+		}
+		$.ajax({
+			type:"get",
+			url:"dboperate/evaluation.php",
+			async:false,
+			data:{
+				num : num,
+				evaluation:oWodepingjia.value.trim()
+			},
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+				//s = JSON.parse(msg);
+/*				a = "登录成功";
+				if(msg == a){
+					var oId = document.getElementById("id");
+					document.cookie = oId.value;
+					window.location.href="index.html";
+				}
+				else{
+					document.cookie = "";
+					window.location.href="empty-list.html";
+				}*/
+			},
+			error: function(){
+				alert("服务器连接失败");
+				return false;
+			}
+		});
+		oRderList.style.display = "none";
+		oDiv.innerHTML = oWodepingjia.value;
+		oDiv.style.fontSize = "18px";
+		oContent.appendChild(oDiv);
+	}
 </script>
 
-<script>
+<!--<script>
     var oRderList = document.getElementsByClassName("order-list")[0],
 		oPingjia = document.getElementById("pingjia"),
 		oFabiao = document.getElementById("fabiao"),
@@ -178,6 +258,6 @@
        oContent.appendChild(oDiv);
 
     }
-</script>
+</script>-->
 
 </html>

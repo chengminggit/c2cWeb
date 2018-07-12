@@ -15,6 +15,27 @@
     <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/loading.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<style>
+		.box-s{
+			position: relative;
+		}
+		.see{
+			 position: absolute;
+			 right:0;
+			top:100px;
+			color:#f90;
+			 font-size: 18px;
+		 }
+		.dinggou{
+			position: absolute;
+			right:0;
+			top:140px;
+			color:#f90;
+			font-size: 18px;
+		}
+
+
+	</style>
     <script type="text/javascript" src="js/menu.js" ></script>
 	<script type="text/javascript">
 		$(window).load(function(){
@@ -75,7 +96,7 @@
 				</ul>
 			</div>
 			
-			<div id="oe_overlay" class="oe_overlay"></div>
+			<!--<div id="oe_overlay" class="oe_overlay"></div>-->
 			
 			<div class="recom clearfloat recomtwo">
 		    	<div class="content clearfloat box-s" id="father">
@@ -227,58 +248,75 @@
 				s = msg.v1.county;
 
 				var oFather = document.getElementById("father");
-				var oDiv = document.createElement("div");
-				console.log(oDiv);
-				oDiv.className = "list clearfloat fl box-s";
 
-				var oA = document.createElement("a");
-				oA.href = "house-details.php";
-				oDiv.appendChild(oA);
+				for(var i in msg){
+                    var oDiv = document.createElement("div");
+                    console.log(oDiv);
+                    oDiv.className = "list clearfloat fl box-s";
 
-				var oTu = document.createElement("div");
-				oTu.className = "tu clearfloat";
-				oA.appendChild(oTu);
+                    var oAyuyue = document.createElement("a");
+                    oAyuyue.href = "house-details1.php";
+                    oAyuyue.className = "see";
+                    oAyuyue.innerHTML = "预约看房";
+                    oDiv.appendChild(oAyuyue);
 
-				var oSpan  = document.createElement("span");
-				oTu.appendChild(oSpan);
+                    var oAxiadan = document.createElement("a");
+                    oAxiadan.href = "house-details1-buy.php";
+                    oAxiadan.className = "dinggou";
+                    oAxiadan.innerHTML = "我要下单";
+                    oDiv.appendChild(oAxiadan);
 
-				var oImg = document.createElement("img");
-				oImg.src = "upload/list-tu.jpg";
-				oTu.appendChild(oImg);
 
-				var oRight = document.createElement("div");
-				oRight.className = "right clearfloat";
-				oA.appendChild(oRight);
+                    var oA = document.createElement("a");
+                    oA.href = "house-details.php";
+                    oDiv.appendChild(oA);
 
-				var oTit = document.createElement("div");
-				oTit.className = "tit clear float";
-				oRight.appendChild(oTit);
+                    var oTu = document.createElement("div");
+                    oTu.className = "tu clearfloat";
+                    oA.appendChild(oTu);
 
-				var oP = document.createElement("p");
-				oP.className = "fl";
-				oP.innerText = "华府骏苑";
-				oTit.appendChild(oP);
+                    var oSpan  = document.createElement("span");
+                    oTu.appendChild(oSpan);
 
-				var oSpan1 = document.createElement("span");
-				oSpan1.className = "fr";
-				oSpan1.innerHTML = msg.v1.rent + "<samp>元/月</samp>";
-                oTit.appendChild(oSpan1);
+                    var oImg = document.createElement("img");
+                    oImg.src = "upload/list-tu.jpg";
+                    oTu.appendChild(oImg);
 
-                var oPrecom = document.createElement("p");
-                oPrecom.className = "recom-jianjie";
-                oPrecom.innerHTML = "三室一厅一卫   |  " + msg.v1.area + "m²  |  普装";
-                oRight.appendChild(oPrecom);
+                    var oRight = document.createElement("div");
+                    oRight.className = "right clearfloat";
+                    oA.appendChild(oRight);
 
-                var oPcity = document.createElement("p");
-                oPcity.className = "recom-jianjie";
-                oPcity.innerHTML = msg.v1.city + " " + msg.v1.county;
-                oRight.appendChild(oPcity);
+                    var oTit = document.createElement("div");
+                    oTit.className = "tit clear float";
+                    oRight.appendChild(oTit);
 
-                var oRe = document.createElement("div");
-                oRe.className = "recom-bottom clearfloat";
-                oRight.appendChild(oPcity);
+                    var oP = document.createElement("p");
+                    oP.className = "fl";
+                    oP.innerText = "华府骏苑";
+                    oTit.appendChild(oP);
 
-				oFather.appendChild(oDiv);
+                    var oSpan1 = document.createElement("span");
+                    oSpan1.className = "fr";
+                    oSpan1.innerHTML = msg[i].rent + "<samp>元/月</samp>";
+                    oTit.appendChild(oSpan1);
+
+                    var oPrecom = document.createElement("p");
+                    oPrecom.className = "recom-jianjie";
+                    oPrecom.innerHTML = "三室一厅一卫   |  " + msg[i].area + "m²  |  普装";
+                    oRight.appendChild(oPrecom);
+
+                    var oPcity = document.createElement("p");
+                    oPcity.className = "recom-jianjie";
+                    oPcity.innerHTML = msg[i].city + " " + msg[i].county;
+                    oRight.appendChild(oPcity);
+
+                    var oRe = document.createElement("div");
+                    oRe.className = "recom-bottom clearfloat";
+                    oRight.appendChild(oPcity);
+
+                    oFather.appendChild(oDiv);
+				}
+
 
 
 
