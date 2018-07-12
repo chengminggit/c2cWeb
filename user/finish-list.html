@@ -55,7 +55,7 @@
 						<a href="empty-list.html">待评价</a>
 					</li>
 					<li class="cur">
-						<a href="empty-list.html">已拒绝</a>
+						<a href="finish-list.html">已拒绝</a>
 					</li>
 				</ul>
 			</div>
@@ -65,8 +65,8 @@
 			<!--<p>还没有内容哦！</p>-->
 		<!--</div>-->
 
-		<div class="schedule clearfloat collection">
-			<div class="content clearfloat box-s">
+		<div class="schedule clearfloat collection" id="dad">
+			<!--<div class="content clearfloat box-s">
 				<div class="topsche-top box-s clearfloat">
 					<p class="fl add">
 						看房时间：2016-04-30
@@ -98,7 +98,7 @@
 					</a>
 				</div>
 
-			</div>
+			</div>-->
 
 
 		</div>
@@ -109,7 +109,139 @@
 	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
 
+<script>
+	$.ajax({
+		type:"get",
+		url:"dboperate/tenantRefused.php",
+		async:false,
+		data:{
 
+		},
+		dataType:"json",
+		success:function(msg){
+			var oFather = document.getElementById("dad");
+
+			for(var i in msg){
+				var oBigDiv = document.createElement("div");
+				oBigDiv.className = "content clearfloat box-s son";
+
+				var oDiv1 = document.createElement("div");
+				//console.log(oDiv);
+				oDiv1.className = "topsche-top box-s clearfloat ";
+
+				oBigDiv.appendChild(oDiv1);
+
+				var oAyuyue0 = document.createElement("p");
+				oAyuyue0.className = "fl add";
+				oAyuyue0.innerHTML = "订单ID：";
+				oDiv1.appendChild(oAyuyue0);
+
+				var oAyuyue = document.createElement("p");
+				oAyuyue.className = "fl add";
+				oAyuyue.innerHTML = msg[i].ID;
+				oDiv1.appendChild(oAyuyue);
+
+				var oAxiadan = document.createElement("p");
+				oAxiadan.className = "tit fr";
+
+
+					oAxiadan.innerHTML = "已保存";
+
+
+					oAxiadan.innerHTML = "已被户主拒绝";
+
+
+				oDiv1.appendChild(oAxiadan);
+
+
+				var oDiv2 = document.createElement("div");
+				oDiv2.className = "list clearfloat fl box-s";
+
+				var oA = document.createElement("a");
+				//oA.href = "house-details.php";
+				oDiv2.appendChild(oA);
+
+				oBigDiv.appendChild(oDiv2);
+
+				var oSmallDiv1 = document.createElement("div");
+				oSmallDiv1.className = "tu clearfloat";
+				oA.appendChild(oSmallDiv1);
+
+				var oS = document.createElement("span");
+				oSmallDiv1.appendChild(oS);
+
+				var oImg = document.createElement("img");
+				oImg.src="upload/list-tu.jpg";
+				oSmallDiv1.appendChild(oImg);
+
+				var oSmallDiv2 = document.createElement("div");
+				oSmallDiv2.className="right clearfloat";
+				oSmallDiv2.style="position:relative";
+				oA.appendChild(oSmallDiv2);
+
+				var olittleDiv1 = document.createElement("div");
+				olittleDiv1.className="tit clearfloat";
+				oSmallDiv2.appendChild(olittleDiv1);
+
+				var op = document.createElement("p");
+				op.className="f1";
+				op.innerText="房源ID："+msg[i].houseID;
+				olittleDiv1.appendChild(op);
+
+				var op1=document.createElement("p");
+				op1.className="recom-jianjie";
+				op1.innerText="租期："+msg[i].rentTime+" 个月";
+				oSmallDiv2.appendChild(op1);
+
+				var olittleDiv2 = document.createElement("div");
+				olittleDiv2.className="recom-bottom clearfloat";
+				olittleDiv2.innerText="1000";
+				oSmallDiv2.appendChild(olittleDiv2);
+
+				var oSamp = document.createElement("samp");
+				oSamp.innerText=" 元/月";
+				olittleDiv2.appendChild(oSamp);
+
+				var op2=document.createElement("p");
+				op2.className="recom-bottom clearfloat";
+				op2.innerText="租住人数："+msg[i].number+" 人";
+				oSmallDiv2.appendChild(op2);
+
+				var op3=document.createElement("p");
+				op3.className="recom-bottom clearfloat";
+				op3.innerText="入住日期："+msg[i].startDate;
+				oSmallDiv2.appendChild(op3);
+
+				var oDiv3 = document.createElement("div");
+				oDiv3.className = "topsche-top entrust box-s clearfloat";
+				oBigDiv.appendChild(oDiv3);
+
+				/*if(msg[i].type==1)
+				{
+					var oA1= document.createElement("a");
+					oA1.className="submit";
+					oA1.innerText="提交";
+					oDiv3.appendChild(oA1);
+
+					var oA2= document.createElement("a");
+					oA2.className="modify";
+					oA2.innerText="修改";
+					oDiv3.appendChild(oA2);
+
+					var oA3= document.createElement("a");
+					oA3.className="delete";
+					oA3.innerText="删除";
+					oDiv3.appendChild(oA3);
+				}*/
+				oFather.appendChild(oBigDiv);
+			}
+		},
+
+		error: function(){
+			alert("服务器连接失败");
+			return false;
+		}});
+</script>
 
 
 </html>

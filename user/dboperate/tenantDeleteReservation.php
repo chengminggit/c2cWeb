@@ -11,20 +11,11 @@ if ($conn->connect_error) {
 }
 $conn->query("set names utf8");
 
-$sql="Select * from Reservation WHERE Id = '$id'";
+$sql="delete from Reservation WHERE Id = '$id'";
 $result = mysqli_query($conn, $sql);
-$raw = $result->fetch_assoc();
 
-if($raw["type"]==1){
-    $sql="UPDATE Reservation SET type=2 WHERE Id = '$id'";
-}
-else{
-    $sql="UPDATE Reservation SET type=1 WHERE Id = '$id'";
-}
-
-$result = mysqli_query($conn, $sql);
 if($result){
-    $return= "提交成功";
+    $return= "删除成功";
 }
 $conn->close();
 

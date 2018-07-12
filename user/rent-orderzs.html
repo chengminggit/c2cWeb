@@ -311,26 +311,30 @@
 
 <script>
 	var oFather = document.getElementById("dad");
-	var oSon = oFather.getElementsByTagName("div");
-	var oGrandSon=oSon.getElementsByTagName("div");
-	var oP = oGrandSon[0].getElementsByTagName("P");
+	var oSon = oFather.getElementsByClassName("son");//bigdiv组
 	var oDelete = document.getElementsByClassName("delete");
 	console.log(oDelete);
 	for(var i=0; i<oDelete.length; i++){
 		oDelete[i].index = i;
+//    console.log("我的长度",oChange.length);
 		oDelete[i].onclick = function () {
 			var index = this.index;
 			console.log(index);
 			//oSon[index].style.display = "none";
 
-			var oSonTd = oSon[index].getElementsByTagName("td");
 
-			var id = oSonTd[1].innerHTML;
-			alert(id);
+			console.log(oSon[index]);
+			var oGrandSon=oSon[index].getElementsByTagName("div");//bigdiv下的div组
+			//console.log(oGrandSon);
+			var oP = oGrandSon[0].getElementsByTagName("P");//bigdiv下的div组【0】下的p组
+
+			console.log(oP);
+
+			var id = oP[1].innerText;
 
 			$.ajax({
 				type:"get",
-				url:"php/deleteBusinessAdmin.php",
+				url:"dboperate/tenantDeleteReservation.php",
 				async:false,
 				data:{
 					id:id,
@@ -338,7 +342,7 @@
 				dataType:"json",
 				success:function(data){
 					alert(data);
-					window.location.href="businessAdmin.html";
+					window.location.href="rent-orderzs.html";
 
 				},
 				error: function(){
@@ -372,7 +376,6 @@
 			console.log(oP);
 
 			var id = oP[1].innerText;
-			alert(id);
 
 			$.ajax({
 				type:"get",
