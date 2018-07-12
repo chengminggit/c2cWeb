@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/loading.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link href="css/EvaluationOrder.debug.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript">
 		$(window).load(function(){
 			$(".loading").addClass("loader-chanage")
@@ -56,52 +57,37 @@
                 </div>
                 <div class="tab-bd clearfloat">
                     <div class="tab-pal">
-                        <dl class="list clearfloat box-s fl">
+                        <dl class="list clearfloat box-s fl" style="position: relative;">
                             <dt>
                                 <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">+1000</span>
+                                <span class="fr" style="font-size:23px;">+1000</span>
                             </dt>
                             <dd>2016-03-03</dd>
+                            <button style="width:100px;height: 50px;outline: none;border:0;color:#f90;background-color:transparent;font-size:18px;position:absolute;right:29px;top:80px;" id="woyaopingjia">我要评价</button>
                         </dl>
-                        <dl class="list clearfloat box-s fl">
-                            <dt>
-                                <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">+1000</span>
-                            </dt>
-                            <dd>2016-03-03</dd>
-                        </dl>
-                        <dl class="list clearfloat box-s fl">
-                            <dt>
-                                <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">+1000</span>
-                            </dt>
-                            <dd>2016-03-03</dd>
-                        </dl>
+
+                        <script type="text/javascript" src="js/jquery1.js"></script>
+                        <div class="order-list" style="display:none;" id="pingjia">
+                            <section>
+                                <div class="order-list-Below">
+                                    <h1>租房评价</h1>
+                                    <ul>
+                                        <li id="star1"></li>
+                                        <li id="star2"></li>
+                                        <li id="star3"></li>
+                                        <li id="star4"></li>
+                                        <li id="star5"> </li>
+                                    </ul>
+                                    <div class="order-textbox">
+                                        <textarea placeholder="在此输入对房子评价" id="wodepingjia"></textarea>
+                                    </div>
+                                    <p style="font-size:18px;cursor:pointer;" id="fabiao">发表</p>
+                                </div>
+                            </section>
+
+                        </div>
                     </div>
 
-                    <div class="tab-pal">
-                        <dl class="list clearfloat box-s fl">
-                            <dt>
-                                <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">-1000</span>
-                            </dt>
-                            <dd>2016-03-03</dd>
-                        </dl>
-                        <dl class="list clearfloat box-s fl">
-                            <dt>
-                                <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">-1000</span>
-                            </dt>
-                            <dd>2016-03-03</dd>
-                        </dl>
-                        <dl class="list clearfloat box-s fl">
-                            <dt>
-                                <p class="fl">怀宁路宁溪家园租房房租（3个月）</p>
-                                <span class="fr">-1000</span>
-                            </dt>
-                            <dd>2016-03-03</dd>
-                        </dl>
-                    </div>
 
                 </div>
             </div>
@@ -114,4 +100,111 @@
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 	<script type="text/javascript" src="js/tchuang.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
+
+<script type="text/javascript">
+    $(".order-list-Below ul li").click(
+        function(){
+            var num = $(this).index()+1;
+            var len = $(this).index();
+            var thats = $(this).parent(".order-list-Below ul").find("li");
+            if($(thats).eq(len).attr("class")=="on"){
+                if($(thats).eq(num).attr("class")=="on"){
+                    $(thats).removeClass();
+                    for (var i=0 ; i<num; i++) {
+                        $(thats).eq(i).addClass("on");
+                    }
+                }else{
+                    $(thats).removeClass();
+                    for (var k=0 ; k<len; k++) {
+                        $(thats).eq(k).addClass("on");
+                    }
+                }
+            }else{
+                $(thats).removeClass();
+                for (var j=0 ; j<num; j++) {
+                    $(thats).eq(j).addClass("on");
+                }
+            }
+        }
+    );
+</script>
+
+<script>
+    var oWoyaopingjia = document.getElementById("woyaopingjia"),
+        oPingjia = document.getElementById("pingjia");
+    oWoyaopingjia.onclick = function () {
+        oPingjia.style.display = "block";
+    }
+</script>
+
+<script>
+    oFabiao.onclick = function () {
+        var oStar1 = document.getElementById("star1");
+        var oStar2 = document.getElementById("star2");
+        var oStar3 = document.getElementById("star3");
+        var oStar4 = document.getElementById("star4");
+        var oStar5 = document.getElementById("star5");
+        var num = 0;
+        if (oStar5.class=="on")
+        {
+            num = 5;
+        }
+        else{
+            if(oStar4.class=="on"){
+                num=4;
+            }
+            else{
+                if(oStar3.class=="on"){
+                    num=3;
+                }
+                else{
+                    if(oStar3.class=="on"){
+                        num = 3;
+                    }
+                    else{
+                        if(oStar2.class=="on"){
+                            num = 2;
+                        }
+                        else{
+                            num = 1;
+                        }
+                    }
+                }
+            }
+        }
+        $.ajax({
+            type:"get",
+            url:"dboperate/evaluation.php",
+            async:false,
+            data:{
+                num : num,
+                evaluation:oWodepingjia.value.trim()
+            },
+            dataType:"json",
+            success:function(msg){
+                alert(msg);
+                //s = JSON.parse(msg);
+                /*				a = "登录成功";
+                                if(msg == a){
+                                    var oId = document.getElementById("id");
+                                    document.cookie = oId.value;
+                                    window.location.href="index.html";
+                                }
+                                else{
+                                    document.cookie = "";
+                                    window.location.href="empty-list.html";
+                                }*/
+            },
+            error: function(){
+                alert("服务器连接失败");
+                return false;
+            }
+        });
+        oRderList.style.display = "none";
+        oDiv.innerHTML = oWodepingjia.value;
+        oDiv.style.fontSize = "18px";
+        oContent.appendChild(oDiv);
+    }
+</script>
+
 </html>
