@@ -277,6 +277,19 @@
                 oButton_shanchu.innerText = "删除";
                 oDiv_btn.appendChild(oButton_shanchu);
 
+                var oButton_change = document.createElement("button");
+                oButton_change.className = "layui-btn  layui-btn-xs dw-refresh";
+
+                oDiv_btn.appendChild(oButton_change);
+
+                var oI_change = document.createElement("i");
+                oI_change.className = "layui-btn";
+                oI_change.innerText = "&#xe640;";
+                oButton_change.appendChild(oI_change);
+
+                oButton_change.innerText = "更改权限";
+                oDiv_btn.appendChild(oButton_change);
+
 
 
                 //value=value+1;
@@ -293,41 +306,37 @@
                     var oSonTr = oFather.getElementsByTagName("tr");
                     var oSonTd = oSonTr[index-1].getElementsByTagName("td");
                     oSonTd[2].contentEditable = "true";
-                    // oSon[index].style.display = "none";
-                    // var oMyDiv = document.createElement("div");
-                    // oMyDiv.style.position = "absolute";
-                    // oMyDiv.style.top = "30px";
-                    // oMyDiv.style.left = "400px";
-                    // oMyDiv.style.width = "400px";
-                    // oMyDiv.style.height = "400px";
-                    // oMyDiv.style.backgroundColor = "#f00";
-                    // oMyDiv.style.zIndex = "999";
-
-                    //oSon[index].appendChild(oMyDiv);
 
 
+                    oSonTd[2].onblur = function () {
+                        var new_Password = oSonTd[2].innerText;
+                        var th_ID = oSonTd[1].innerText;
+                        $.ajax({
+                            type:"get",
+                            url:"php/modifyBusinessAdmin.php",
+                            async:false,
+                            data:{
+                                id:th_ID,
+                                password:new_Password,
+                            },
+                            dataType:"json",
+                            success:function(data){
+                                alert(data);
+                                window.location.href="businessAdmin.html";
 
-                    // for(var i in msg){
-                    //     var oTd_id = document.createElement("td");
-                    //     oTd_id.innerText = msg[i].ID;
-                    //     oMyDiv.appendChild(oTd_id);
-                    //
-                    //     var oTd_password = document.createElement("td");
-                    //     oTd_password.innerText = msg[i].password;
-                    //     oMyDiv.appendChild(oTd_password);
-                    //
-                    //     var oTd_permission = document.createElement("td");
-                    //     oTd_permission.innerText = msg[i].permission;
-                    //     oMyDiv.appendChild(oTd_permission);
-                    // }
-
-
+                            },
+                            error: function(){
+                                alert("服务器连接失败");
+                                return false;
+                            }
+                        });
+                    }
 
                 }
             }
 
 
-           // oFather.appendChild(oDiv);
+            // oFather.appendChild(oDiv);
 
 
             //oFather.appendChild(oDiv);
@@ -404,12 +413,72 @@
         oDelete[i].onclick = function () {
             var index = this.index;
             console.log(index);
-            oSon[index].style.display = "none";
+            //oSon[index].style.display = "none";
+
+            var oSonTd = oSon[index].getElementsByTagName("td");
+
+            var id = oSonTd[1].innerText;
+            alert(id);
+
+            $.ajax({
+                type:"get",
+                url:"php/deleteBusinessAdmin.php",
+                async:false,
+                data:{
+                    id:id,
+                },
+                dataType:"json",
+                success:function(data){
+                    alert(data);
+                    window.location.href="businessAdmin.html";
+
+                },
+                error: function(){
+                    alert("服务器连接失败");
+                    return false;
+                }
+            });
         }
     }
+</script>
 
+<script>
+    var oFather = document.getElementById("father");
+    var oSon = oFather.getElementsByTagName("tr");
+    var oChange = document.getElementsByClassName("dw-refresh");
+    console.log(oChange);
+    for(var i=0; i<oChange.length; i++){
+        oChange[i].index = i;
+        oChange[i].onclick = function () {
+            var index = this.index;
+            console.log(index);
+            //oSon[index].style.display = "none";
 
+            var oSonTd = oSon[index-1].getElementsByTagName("td");
 
+            var id = oSonTd[1].innerText;
+            alert(id);
+
+            $.ajax({
+                type:"get",
+                url:"php/permissionBusinessAdmin.php",
+                async:false,
+                data:{
+                    id:id,
+                },
+                dataType:"json",
+                success:function(data){
+                    alert(data);
+                    window.location.href="businessAdmin.html";
+
+                },
+                error: function(){
+                    alert("服务器连接失败");
+                    return false;
+                }
+            });
+        }
+    }
 </script>
 
 </html>
