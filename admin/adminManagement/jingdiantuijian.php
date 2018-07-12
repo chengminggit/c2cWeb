@@ -58,12 +58,7 @@
                 <dd><a href="adminRole.html">用户角色</a></dd>
             </dl>
         </li>
-        <li class="layui-nav-item">
-                <a href="javascript:;">会员管理</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="member.html">会员列表</a></dd>
-                </dl>
-            </li>
+
       </ul>
     </div>
   </div>
@@ -90,6 +85,12 @@
                         <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" id="addtitle">
                         </div>
                     </div>
+<!--                    <div class="layui-form-item">-->
+<!--                        <label class="layui-form-label">密码</label>-->
+<!--                        <div class="layui-input-inline">-->
+<!--                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="addpassword">-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">文本域</label>
                         <div class="layui-input-block">
@@ -126,10 +127,10 @@
 
     oSubmit.onclick = function(){
         var title = $("#addtitle").val().trim();
-        // var password = $("#addpassword").val().trim();
+//        var password = $("#addpassword").val().trim();
         var text = $("#addtext").val().trim();
 
-        if(title==""||text==""){
+        if(title==""||password==""||text==""){
             alert("内容不能为空");
             return false;
         }
@@ -140,6 +141,7 @@
                 async:false,
                 data:{
                     title:title,
+//                    password:password,
                     text:text
                 },
                 dataType:"json",
