@@ -43,6 +43,9 @@
             <dl class="layui-nav-child">
                 <dd><a class="layui-this" href="jingdiantuijian.php">景点推荐</a></dd>
             </dl>
+            <dl class="layui-nav-child">
+                <dd><a class="layui-this" href="zhusutuijian.php">住宿推荐</a></dd>
+            </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
@@ -64,6 +67,12 @@
                     <dd><a href="member.html">会员列表</a></dd>
                 </dl>
             </li>
+          <li class="layui-nav-item" id="pingtai">
+              <a href="javascript:;">平台管理员管理</a>
+              <dl class="layui-nav-child">
+                  <dd><a href="businessAdmin.html">平台管理员列表</a></dd>
+              </dl>
+          </li>
       </ul>
     </div>
   </div>
