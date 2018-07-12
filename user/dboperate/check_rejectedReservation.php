@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>管理订单</title>
+    <title>已拒绝订单</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <script src="js/rem.js"></script>
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/page.css"/>
-    <link rel="stylesheet" type="text/css" href="css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/page.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loaders.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
 
     <style>
         .show{
@@ -97,9 +97,6 @@
         .tr-content td{
             /*height:200px;*/
         }
-        .title{
-            color:#fff;
-        }
     </style>
     <script type="text/javascript">
         $(window).load(function(){
@@ -124,34 +121,24 @@
 <body>
 <div class="headertwo clearfloat" id="header">
     <a href="javascript:history.go(-1)" class="fl box-s"><i class="iconfont icon-arrow-l fl"></i></a>
-    <p class="fl">管理订单</p>
+    <p class="fl">已拒绝订单</p>
 </div>
-
 
 <div class="about-detail clearfloat box-s" id="main">
     <div class="ctent clearfloat box-s">
         <div class="show">
             <table border="1">
                 <tr>
-                    <th><a href="guanlidingdan.php" class="title">待处理订单</a></th>
-                    <th><a href="check_acceptedReservation.php" class="title">已接受订单</a></th>
-                    <th><a href="check_rejectedReservation.php" class="title">已拒绝订单</a></th>
-
-                </tr></table></div></div></div>
-
-<div class="about-detail clearfloat box-s" id="main">
-    <div class="ctent clearfloat box-s" style="position:absolute;top:230px;">
-        <div class="show">
-            <table border="1">
-                <tr>
-                    <th>id</th>
-                    <th>租户姓名</th>
-                    <th>联系方式</th>
-                    <th>入住日期</th>
-                    <th>租期(单位：月)</th>
-                    <th>租住人数</th>
+                    <th>订单ID</th>
+                    <th>房屋ID</th>
+                    <th>出租者ID</th>
+                    <th>租户ID</th>
                     <th>订单状态</th>
+                    <th>开始日期</th>
+                    <th>租期（月）</th>
+                    <th>租住人数</th>
                     <th>操作</th>
+
 
                 </tr>
 
@@ -164,28 +151,28 @@
                     die("连接失败: " . $conn->connect_error);
                 }
                 $conn->query("set names utf8");
-                $sql = "SELECT Reservation.Id,name,telphone,startDate,rentTime,number,typeName FROM Reservation,Tenant,ReservationType where Reservation.tenantID=Tenant.Id and Reservation.type=2 and Reservation.type=ReservationType.typeId";
+                $cookieid = $_COOKIE["logid"];
+                $sql= "SELECT Id, houseID, lessorID, tenantID, typeName, startDate, rentTime, number FROM Reservation, ReservationType WHERE  Reservation.type=4 and Reservation.lessorID=$cookieid and Reservation.type=ReservationType.typeId";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     // 输出数据
                     while($row = $result->fetch_assoc()) {
                         echo ("<tr class='tr-content'><td>".$row["Id"]."</td>");
-                        echo ("<td>".$row["name"]."</td>" );
-                        echo ("<td>".$row["telphone"]."</td>" );
+                        echo ("<td>".$row["houseID"]."</td>" );
+                        echo ("<td>".$row["lessorID"]."</td>" );
+                        echo ("<td>".$row["tenantID"]."</td>" );
+                        echo ("<td>".$row["typeName"]."</td>" );
                         echo ("<td>".$row["startDate"]."</td>" );
                         echo ("<td>".$row["rentTime"]."</td>" );
                         echo ("<td>".$row["number"]."</td>" );
-                        echo ("<td>".$row["typeName"]."</td>" );
                         echo ("<td>
                     <div role=\"presentation\" class=\"dropdown\">
                         <ul class=\"dropdown-menu\">
-                            <button
-                                   onclick=\"accept(".$row["Id"].")\">接受
+                            <button 
+                                   onclick=\"deleteOrder(".$row["Id"].")\">删除
                             </button>
-                            <button
-                                onclick=\"refuse(".$row["Id"].")\">拒绝
-                            </button>
+                          
                         </ul>
                     </div>
                 </td></tr>");
@@ -204,72 +191,41 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
-<script type="text/javascript" src="slick/slick.min.js" ></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<script type="text/javascript" src="js/tchuang.js" ></script>
-<script type="text/javascript" src="js/hmt.js" ></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.js" ></script>
+<script type="text/javascript" src="../slick/slick.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="../js/tchuang.js" ></script>
+<script type="text/javascript" src="../js/hmt.js" ></script>
 
 <script type="text/javascript">
-    function accept(id) {
-        var judge= confirm("您确认接受该订单吗?");
-        if(judge ==1)
-        {
+    function deleteOrder(id) {
+        var judge = confirm("您确认删除该订单记录吗?");
+        if (judge == 1) {
             $.ajax({
-                type:"get",
-                url:"dboperate/accept_reservation.php",
-                async:false,
-                data:{
-                    id:id
+                type: "get",
+                url: "dboperate/delete_reservation.php",
+                async: false,
+                data: {
+                    id: id
                 },
-                dataType:"json",
-                success:function(data){
-                    if(data==1){
+                dataType: "json",
+                success: function (data) {
+                    if (data == 1) {
                         alert("接受订单成功");
-                        window.location.href="guanlidingdan.php";
+                        window.location.href = "guanlidingdan.php";
                     }
 
                 },
-                error: function(){
+                error: function () {
                     alert("服务器连接失败");
-                    window.location.href="guanlidingdan.php";
+                    window.location.href = "guanlidingdan.php";
                     return false;
                 }
             });
         }
         else
-            return ;
-    }
-
-    function refuse(id) {
-        var judge= confirm("您确认接受该订单吗?");
-        if(judge ==1)
-        {
-            $.ajax({
-                type:"get",
-                url:"dboperate/refuse_reservation.php",
-                async:false,
-                data:{
-                    id:id
-                },
-                dataType:"json",
-                success:function(data){
-                    if(data==1){
-                        alert("拒绝订单成功");
-                        window.location.href="guanlidingdan.php";
-                    }
-
-                },
-                error: function(){
-                    alert("服务器连接失败");
-                    window.location.href="guanlidingdan.php";
-                    return false;
-                }
-            });
-        }
-        else
-            return ;
+            return;
     }
 </script>
 

@@ -6,15 +6,15 @@
     <title>管理房源</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <script src="js/rem.js"></script> 
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/page.css"/>
-    <link rel="stylesheet" type="text/css" href="css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/page.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loaders.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -172,7 +172,7 @@
 						}
 						$conn->query("set names utf8");
 						$cookieid = $_COOKIE["logid"];
-						$sql = "SELECT house.ID, lessorID, Status.statusName, city, county, street, area, rent, Discount.discountName, house.type FROM house, user, Status, Discount where user.id=house.lessorID and house.status=Status.statusId and house.discount=Discount.discountID and house.lessorID=$cookieid";
+						$sql = "SELECT house.ID, lessorID, Status.statusName, city, county, street, area, rent, Discount.discountName, housetype.typeName FROM house, user, Status, Discount, housetype where user.id=house.lessorID and house.status=Status.statusId and house.discount=Discount.discountID and house.type=housetype.typeId and house.lessorID=$cookieid";
 						$result = $conn->query($sql);
 
 						if ($result->num_rows > 0) {
@@ -187,7 +187,7 @@
 								echo ("<td>".$row["area"]."</td>" );
 								echo ("<td>".$row["rent"]."</td>" );
 								echo ("<td>".$row["discountName"]."</td>" );
-								echo ("<td>".$row["type"]."</td>" );
+								echo ("<td>".$row["typeName"]."</td>" );
 								echo ("<td>
 
                             <button  role=\"button\" data-toggle=\"modal\"
@@ -213,7 +213,6 @@
 				</div>
 			</div>
 		</div>
-
 	</body>
 <div class="container">
 <div class="modal fade" id="houseinfo-modify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -265,12 +264,12 @@
 </div>
 </div>
 
-	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
-	<script type="text/javascript" src="slick/slick.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-	<script type="text/javascript" src="js/tchuang.js" ></script>
-	<script type="text/javascript" src="js/hmt.js" ></script>
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.js" ></script>
+	<script type="text/javascript" src="../slick/slick.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery.leanModal.min.js"></script>
+	<script type="text/javascript" src="../js/tchuang.js" ></script>
+	<script type="text/javascript" src="../js/hmt.js" ></script>
 
 <script type="text/javascript">
 
@@ -280,7 +279,7 @@
 		{
 			$.ajax({
 				type:"get",
-				url:"dboperate/houseinfo_delete.php",
+				url:"houseinfo_delete.php",
 				async:false,
 				data:{
 					id:id
@@ -325,7 +324,7 @@
 
 		$.ajax({
 			type:"get",
-			url:"dboperate/houseinfo_modify.php",
+			url:"houseinfo_modify.php",
 			async:false,
 			data:{
 				id:id,
