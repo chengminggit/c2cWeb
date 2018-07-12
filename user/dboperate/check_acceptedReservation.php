@@ -6,15 +6,15 @@
     <title>已接受订单</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <script src="js/rem.js"></script>
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/page.css"/>
-    <link rel="stylesheet" type="text/css" href="css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loaders.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/page.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loaders.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
 
     <style>
         .show{
@@ -150,8 +150,9 @@
                     die("连接失败: " . $conn->connect_error);
                 }
                 $conn->query("set names utf8");
+                $cookieid = $_COOKIE["logid"];
                // $sql = "SELECT Reservation.Id,name,telphone,startDate,rentTime,number,typeName FROM Reservation,Tenant,ReservationType where Reservation.tenantID=Tenant.Id and Reservation.type=3 and Reservation.type=ReservationType.typeId";
-                $sql= "SELECT Id, houseID, lessorID, tenantID, typeName, startDate, rentTime, number FROM Reservation, ReservationType WHERE  Reservation.type=3 and Reservation.type=ReservationType.typeId";
+                $sql= "SELECT Id, houseID, lessorID, tenantID, typeName, startDate, rentTime, number FROM Reservation, ReservationType WHERE  Reservation.type=3 and Reservation.lessorID=$cookieid and Reservation.type=ReservationType.typeId";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -181,12 +182,12 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js" ></script>
-<script type="text/javascript" src="slick/slick.min.js" ></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<script type="text/javascript" src="js/tchuang.js" ></script>
-<script type="text/javascript" src="js/hmt.js" ></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.js" ></script>
+<script type="text/javascript" src="../slick/slick.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="../js/tchuang.js" ></script>
+<script type="text/javascript" src="../js/hmt.js" ></script>
 
 
 
