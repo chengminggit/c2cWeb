@@ -171,14 +171,15 @@
 							die("连接失败: " . $conn->connect_error);
 						}
 						$conn->query("set names utf8");
-						$sql = "SELECT house.ID, Lessor.name, Status.statusName, city, county, street, area, rent, Discount.discountName, house.type FROM house, Lessor, Status, Discount where Lessor.Id=house.lessorID and house.status=Status.statusId and house.discount=Discount.discountID";
+						$cookieid = $_COOKIE["logid"];
+						$sql = "SELECT house.ID, lessorID, Status.statusName, city, county, street, area, rent, Discount.discountName, house.type FROM house, user, Status, Discount where user.id=house.lessorID and house.status=Status.statusId and house.discount=Discount.discountID and house.lessorID=$cookieid";
 						$result = $conn->query($sql);
 
 						if ($result->num_rows > 0) {
 							// 输出数据
 							while($row = $result->fetch_assoc()) {
 								echo ("<tr class='tr-content'><td>".$row["ID"]."</td>");
-								echo ("<td>".$row["name"]."</td>" );
+								echo ("<td>".$row["lessorID"]."</td>" );
 								echo ("<td>".$row["statusName"]."</td>" );
 								echo ("<td>".$row["city"]."</td>" );
 								echo ("<td>".$row["county"]."</td>" );

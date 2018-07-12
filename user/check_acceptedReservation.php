@@ -129,13 +129,15 @@
         <div class="show">
             <table border="1">
                 <tr>
-                    <th>id</th>
-                    <th>租户姓名</th>
-                    <th>联系方式</th>
-                    <th>入住日期</th>
-                    <th>租期(单位：月)</th>
-                    <th>租住人数</th>
+                    <th>订单ID</th>
+                    <th>房屋ID</th>
+                    <th>出租者ID</th>
+                    <th>租户ID</th>
                     <th>订单状态</th>
+                    <th>开始日期</th>
+                    <th>租期（月）</th>
+                    <th>租住人数</th>
+
 
                 </tr>
 
@@ -148,19 +150,21 @@
                     die("连接失败: " . $conn->connect_error);
                 }
                 $conn->query("set names utf8");
-                $sql = "SELECT Reservation.Id,name,telphone,startDate,rentTime,number,typeName FROM Reservation,Tenant,ReservationType where Reservation.tenantID=Tenant.Id and Reservation.type=3 and Reservation.type=ReservationType.typeId";
+               // $sql = "SELECT Reservation.Id,name,telphone,startDate,rentTime,number,typeName FROM Reservation,Tenant,ReservationType where Reservation.tenantID=Tenant.Id and Reservation.type=3 and Reservation.type=ReservationType.typeId";
+                $sql= "SELECT Id, houseID, lessorID, tenantID, typeName, startDate, rentTime, number FROM Reservation, ReservationType WHERE  Reservation.type=3 and Reservation.type=ReservationType.typeId";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     // 输出数据
                     while($row = $result->fetch_assoc()) {
                         echo ("<tr class='tr-content'><td>".$row["Id"]."</td>");
-                        echo ("<td>".$row["name"]."</td>" );
-                        echo ("<td>".$row["telphone"]."</td>" );
+                        echo ("<td>".$row["houseID"]."</td>" );
+                        echo ("<td>".$row["lessorID"]."</td>" );
+                        echo ("<td>".$row["tenantID"]."</td>" );
+                        echo ("<td>".$row["typeName"]."</td>" );
                         echo ("<td>".$row["startDate"]."</td>" );
                         echo ("<td>".$row["rentTime"]."</td>" );
                         echo ("<td>".$row["number"]."</td>" );
-                        echo ("<td>".$row["typeName"]."</td>" );
 
                     }
                 } else {
