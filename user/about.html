@@ -21,6 +21,15 @@
 			$(".loading").fadeOut(300)
 		})
 	</script>
+	<style>
+		input.input{
+			width:200px;
+			height:10px;
+			font-size: 18px;
+			color:#000;
+			vertical-align: bottom;
+		}
+	</style>
 </head>
 <!--loading页开始-->
 <div class="loading">
@@ -38,34 +47,39 @@
 	<body>
 		<div class="headertwo clearfloat" id="header">
 			<a href="javascript:history.go(-1)" class="fl box-s"><i class="iconfont icon-arrow-l fl"></i></a>
-			<p class="fl">关于我们</p>
+			<p class="fl">个人信息</p>
 		</div>
 		
 		<div class="about clefloat" id="main">
 			<div class="p-list p-listwo clearfloat box-s">
-				<a href="about-detail.html" class="clearfloat">
-					<span class="fl">公司介绍</span>
+				<a href="#" class="clearfloat">
+					<span class="fl">姓名</span>
+					<input type="text" class="input" value = "王承铭">
 					<i class="iconfont icon-arrowright fr you"></i>
 				</a>
 			</div>
 			<div class="p-list p-listhree clearfloat box-s">
-				<a href="about-detail.html" class="clearfloat">
-					<span class="fl">荣誉资质</span>
+				<a href="#" class="clearfloat">
+					<span class="fl">昵称</span>
+					<input type="text" class="input" value="检测员">
 					<i class="iconfont icon-arrowright fr you"></i>
 				</a>
 			</div>
 			<div class="p-list p-listhree clearfloat box-s">
-				<a href="about-detail.html" class="clearfloat">
-					<span class="fl">企业文化</span>
+				<a href="#" class="clearfloat">
+					<span class="fl">电话</span>
+					<input type="text" class="input" value="13175203656">
 					<i class="iconfont icon-arrowright fr you"></i>
 				</a>
 			</div>
 			<div class="p-list p-listhree clearfloat box-s">
-				<a href="about-detail.html" class="clearfloat">
-					<span class="fl">合作流程</span>
+				<a href="#" class="clearfloat">
+					<span class="fl">地址</span>
+					<input type="text" class="input" value="威海">
 					<i class="iconfont icon-arrowright fr you"></i>
 				</a>
 			</div>
+			<button id="button" style="background-color: transparent;color:#f90;font-size: 18px;outline: none;border: 1px solid #ccc;margin-left:40px;">保存</button>
 		</div>
 	</body>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
@@ -74,4 +88,9 @@
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 	<script type="text/javascript" src="js/tchuang.js" ></script>
 	<script type="text/javascript" src="js/hmt.js" ></script>
+<script>
+	button.onclick = function () {
+		alert("修改成功");
+    }
+</script>
 </html>
